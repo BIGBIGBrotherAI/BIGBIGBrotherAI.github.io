@@ -1,0 +1,1009 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Big Shuai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。  ffmpeg 处理视频文件的一些操作  在172.16.2.88服务器上，&#x2F;data01&#x2F;ffmpeg-n5.1-latest-linux64-lgpl-shared-5.1.tar.gz 是一个比较新的ffmpeg版本，该版本可以使用n卡做编解码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bash大法好">
+<meta property="og:url" content="http://example.com/2023/12/04/Bash%E5%A4%A7%E6%B3%95%E5%A5%BD/index.html">
+<meta property="og:site_name" content="BigShuai&#39;sBlog">
+<meta property="og:description" content="Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。  ffmpeg 处理视频文件的一些操作  在172.16.2.88服务器上，&#x2F;data01&#x2F;ffmpeg-n5.1-latest-linux64-lgpl-shared-5.1.tar.gz 是一个比较新的ffmpeg版本，该版本可以使用n卡做编解码">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-04T08:44:32.000Z">
+<meta property="article:modified_time" content="2023-12-04T09:05:19.148Z">
+<meta property="article:author" content="Big Shuai">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Bash大法好 - BigShuai&#39;sBlog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Bash大法好"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-12-04 16:44" pubdate>
+          2023年12月4日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          82 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Bash大法好</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。</p>
+<ol>
+<li><h2 id="ffmpeg-处理视频文件的一些操作"><a href="#ffmpeg-处理视频文件的一些操作" class="headerlink" title="ffmpeg 处理视频文件的一些操作"></a>ffmpeg 处理视频文件的一些操作</h2></li>
+</ol>
+<p>在172.16.2.88服务器上，&#x2F;data01&#x2F;ffmpeg-n5.1-latest-linux64-lgpl-shared-5.1.tar.gz 是一个比较新的ffmpeg版本，该版本可以使用n卡做编解码器，也就是是-c hevc_nvenc参数加速处理。</p>
+<p>该版本包含：(decoders: hevc hevc_qsv hevc_cuvid ) (encoders: hevc_amf hevc_nvenc hevc_qsv hevc_vaapi libkvazaar )，hevc_amf是amd集成显卡的编码器，hevc_qsv是intel集成显卡的编码器。</p>
+<ol>
+<li><h3 id="常用参数（来自网络）"><a href="#常用参数（来自网络）" class="headerlink" title="常用参数（来自网络）"></a>常用参数（来自网络）</h3></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>基本选项:</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-formats</td>
+<td>输出所有可用格式</td>
+</tr>
+<tr>
+<td>-f fmt</td>
+<td>指定格式(音频或视频格式)</td>
+</tr>
+<tr>
+<td>-i filename</td>
+<td>指定输入文件名，在linux下当然也能指定:0.0(屏幕录制)或摄像头</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>覆盖已有文件</td>
+</tr>
+<tr>
+<td>-t duration</td>
+<td>记录时长为t</td>
+</tr>
+<tr>
+<td>-fs limit_size</td>
+<td>设置文件大小上限</td>
+</tr>
+<tr>
+<td>-ss time_off</td>
+<td>从指定的时间(s)开始， [-]hh:mm:ss[.xxx]的格式也支持</td>
+</tr>
+<tr>
+<td>-itsoffset time_off</td>
+<td>设置时间偏移(s)，该选项影响所有后面的输入文件。该偏移被加到输入文件的时戳，定义一个正偏移意味着相应的流被延迟了 offset秒。 [-]hh:mm:ss[.xxx]的格式也支持</td>
+</tr>
+<tr>
+<td>-title string</td>
+<td>标题</td>
+</tr>
+<tr>
+<td>-timestamp time</td>
+<td>时间戳</td>
+</tr>
+<tr>
+<td>-author string</td>
+<td>作者</td>
+</tr>
+<tr>
+<td>-copyright string</td>
+<td>版权信息</td>
+</tr>
+<tr>
+<td>-comment string</td>
+<td>评论</td>
+</tr>
+<tr>
+<td>-album string</td>
+<td>album名</td>
+</tr>
+<tr>
+<td>-v verbose</td>
+<td>与log相关的</td>
+</tr>
+<tr>
+<td>-target type</td>
+<td>设置目标文件类型(“vcd”, “svcd”, “dvd”, “dv”, “dv50”, “pal-vcd”, “ntsc-svcd”, …)</td>
+</tr>
+<tr>
+<td>-dframes number</td>
+<td>设置要记录的帧数</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>视频选项:</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-b</td>
+<td>指定比特率(bits&#x2F;s)，似乎ffmpeg是自动VBR的，指定了就大概是平均比特率</td>
+</tr>
+<tr>
+<td>-bitexact</td>
+<td>使用标准比特率</td>
+</tr>
+<tr>
+<td>-vb</td>
+<td>指定视频比特率(bits&#x2F;s)</td>
+</tr>
+<tr>
+<td>-vframes number</td>
+<td>设置转换多少帧(frame)的视频</td>
+</tr>
+<tr>
+<td>-r rate</td>
+<td>帧速率(fps) （可以改，确认非标准桢率会导致音画不同步，所以只能设定为15或者29.97）</td>
+</tr>
+<tr>
+<td>-s size</td>
+<td>指定分辨率 (320x240)</td>
+</tr>
+<tr>
+<td>-aspect aspect</td>
+<td>设置视频长宽比(4:3, 16:9 or 1.3333, 1.7777)</td>
+</tr>
+<tr>
+<td>-croptop size</td>
+<td>设置顶部切除尺寸(in pixels)</td>
+</tr>
+<tr>
+<td>-cropbottom size</td>
+<td>设置底部切除尺寸(in pixels)</td>
+</tr>
+<tr>
+<td>-cropleft size</td>
+<td>设置左切除尺寸 (in pixels)</td>
+</tr>
+<tr>
+<td>-cropright size</td>
+<td>设置右切除尺寸 (in pixels)</td>
+</tr>
+<tr>
+<td>-padtop size</td>
+<td>设置顶部补齐尺寸(in pixels)</td>
+</tr>
+<tr>
+<td>-padbottom size</td>
+<td>底补齐(in pixels)</td>
+</tr>
+<tr>
+<td>-padleft size</td>
+<td>左补齐(in pixels)</td>
+</tr>
+<tr>
+<td>-padright size</td>
+<td>右补齐(in pixels)</td>
+</tr>
+<tr>
+<td>-padcolor color</td>
+<td>补齐带颜色(000000-FFFFFF)</td>
+</tr>
+<tr>
+<td>-vn</td>
+<td>取消视频</td>
+</tr>
+<tr>
+<td>-vcodec codec</td>
+<td>强制使用codec编解码方式(‘copy’ to copy stream)</td>
+</tr>
+<tr>
+<td>-sameq</td>
+<td>使用同样视频质量作为源（VBR）</td>
+</tr>
+<tr>
+<td>-pass n</td>
+<td>选择处理遍数（1或者2）。两遍编码非常有用。第一遍生成统计信息，第二遍生成精确的请求的码率</td>
+</tr>
+<tr>
+<td>-passlogfile file</td>
+<td>选择两遍的纪录文件名为file</td>
+</tr>
+<tr>
+<td>-newvideo</td>
+<td>在现在的视频流后面加入新的视频流</td>
+</tr>
+<tr>
+<td>-vsync</td>
+<td>The -vsync option has the following values:-1: auto (default) 0: passthrough 1: cfr (constant frame rate) 2: vfr (variable frame rate)</td>
+</tr>
+<tr>
+<td>-fps_mode</td>
+<td>The -vsync option has the following values:-1: auto (default) 0: passthrough 1: cfr (constant frame rate) 2: vfr (variable frame rate)</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>高级视频选项</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-pix_fmt format</td>
+<td>set pixel format, ‘list’ as argument shows all the pixel formats supported</td>
+</tr>
+<tr>
+<td>-intra</td>
+<td>仅适用帧内编码</td>
+</tr>
+<tr>
+<td>-qscale q</td>
+<td>以&lt;数值&gt;质量为基础的VBR，取值0.01-255，约小质量越好</td>
+</tr>
+<tr>
+<td>-loop_input</td>
+<td>设置输入流的循环数(目前只对图像有效)</td>
+</tr>
+<tr>
+<td>-loop_output</td>
+<td>设置输出视频的循环数，比如输出gif时设为0表示无限循环</td>
+</tr>
+<tr>
+<td>-g int</td>
+<td>设置图像组大小</td>
+</tr>
+<tr>
+<td>-cutoff int</td>
+<td>设置截止频率</td>
+</tr>
+<tr>
+<td>-qmin int</td>
+<td>设定最小质量，与-qmax（设定最大质量）共用，比如-qmin 10 -qmax 31</td>
+</tr>
+<tr>
+<td>-qmax int</td>
+<td>设定最大质量</td>
+</tr>
+<tr>
+<td>-qdiff int</td>
+<td>量化标度间最大偏差 (VBR)</td>
+</tr>
+<tr>
+<td>-bf int</td>
+<td>使用frames B 帧，支持mpeg1,mpeg2,mpeg4</td>
+</tr>
+</tbody></table>
+<ol>
+<li><h3 id="切割视频——可用于从四合一视频中快速分割出单视角视频"><a href="#切割视频——可用于从四合一视频中快速分割出单视角视频" class="headerlink" title="切割视频——可用于从四合一视频中快速分割出单视角视频"></a>切割视频——可用于从四合一视频中快速分割出单视角视频</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ffmpeg -i <span class="hljs-variable">$&#123;video_name&#125;</span>.mp4 -c hevc_nvenc -vf crop=1280:1280:0:2 -r 5 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_le.mp4<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="视频拼接——可用于快速将单视角视频拼为4-1的视频"><a href="#视频拼接——可用于快速将单视角视频拼为4-1的视频" class="headerlink" title="视频拼接——可用于快速将单视角视频拼为4*1的视频"></a>视频拼接——可用于快速将单视角视频拼为4*1的视频</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ffmpeg -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_fr.mp4 -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_le.mp4 -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_re.mp4 -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_ri.mp4 -filter_complex vstack=inputs=4 -c hevc_nvenc -b:v 3000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_4x1.mp4<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="视频旋转"><a href="#视频旋转" class="headerlink" title="视频旋转"></a>视频旋转</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ffmpeg -i input.mp4 -c copy -metadata:s:v:0 rotate=90 output.mp4<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="视频抽帧（画质好）"><a href="#视频抽帧（画质好）" class="headerlink" title="视频抽帧（画质好）"></a>视频抽帧（画质好）</h3></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs COBOL">ffmpeg -i /data/video_1.mp4 -f image2  -vf fps=fps=1/60 -qscale:v 2 /data/mp4-%05d.jpeg<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="视频抽帧（画质差）"><a href="#视频抽帧（画质差）" class="headerlink" title="视频抽帧（画质差）"></a>视频抽帧（画质差）</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ffmpeg -i inputfile.avi -r 1 -f image2 image-%05d.jpeg<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="批量视频抽帧"><a href="#批量视频抽帧" class="headerlink" title="批量视频抽帧"></a>批量视频抽帧</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-meta">#!/usr/bin/env bash</span><br> <br>videos_root=/data/videos<br>save_root=/data/video_imgs/Image_fps50/<br><span class="hljs-keyword">for</span> video <span class="hljs-keyword">in</span> <span class="hljs-variable">$videos_root</span>/*;<br><span class="hljs-keyword">do</span><br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$video</span><br>save_dir=$save_root$(<span class="hljs-built_in">basename</span> <span class="hljs-variable">$video</span> .avi)<br><span class="hljs-keyword">if</span> [ ! -d <span class="hljs-variable">$save_dir</span> ];<span class="hljs-keyword">then</span><br><span class="hljs-built_in">mkdir</span> <span class="hljs-variable">$save_dir</span><br><span class="hljs-keyword">fi</span><br>ffmpeg -i <span class="hljs-variable">$video</span> -f image2  -vf fps=fps=50 -qscale:v 2 <span class="hljs-variable">$save_dir</span>/mp4-%05d.jpeg<br> <br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="组合前面几个命令——2-2视频转4-1视频"><a href="#组合前面几个命令——2-2视频转4-1视频" class="headerlink" title="组合前面几个命令——2 * 2视频转4 * 1视频"></a>组合前面几个命令——2 * 2视频转4 * 1视频</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Bash">video_name=<span class="hljs-variable">$1</span><br><span class="hljs-built_in">mkdir</span> results<br>ffmpeg -y -i <span class="hljs-variable">$&#123;video_name&#125;</span>.mp4 -c hevc_nvenc -vf crop=1920:1280:0:0 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_ri.mp4<br>ffmpeg -y -i <span class="hljs-variable">$&#123;video_name&#125;</span>.mp4 -c hevc_nvenc -vf crop=1920:1280:1920:0 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_le.mp4<br>ffmpeg -y -i <span class="hljs-variable">$&#123;video_name&#125;</span>.mp4 -c hevc_nvenc -vf crop=1920:1280:0:1280 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_fr.mp4<br>ffmpeg -y -i <span class="hljs-variable">$&#123;video_name&#125;</span>.mp4 -c hevc_nvenc -vf crop=1920:1280:1920:1280 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_re.mp4<br>ffmpeg -y -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_fr.mp4 -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_le.mp4 -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_re.mp4 -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_ri.mp4 -filter_complex vstack=inputs=4 -c hevc_nvenc -b:v 40000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_4x1.mp4<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="按时间截取视频某一段"><a href="#按时间截取视频某一段" class="headerlink" title="按时间截取视频某一段"></a>按时间截取视频某一段</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ffmpeg  -i videodump_2023_02_21_15_49_26.mp4 -vcodec copy -acodec copy -ss 00:00:05 -to 00:00:25 ./out1.mp4 -y<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="四张单视角图片合并为一张4x1的图片"><a href="#四张单视角图片合并为一张4x1的图片" class="headerlink" title="四张单视角图片合并为一张4x1的图片"></a>四张单视角图片合并为一张4x1的图片</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ffmpeg -i front.png -i left.png -i rear.png -i right.png -filter_complex vstack=inputs=4 img1.png<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="2×2到4×1；多个视频合并"><a href="#2×2到4×1；多个视频合并" class="headerlink" title="2×2到4×1；多个视频合并"></a>2×2到4×1；多个视频合并</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-comment">##############################################################################################</span><br>视频信息：地址、后缀名、前后左右顺序、分辨率<br>root=/home/calmcar/wly/Hozon_ep40/54_white<br>suffix=.mp4<br>direct1=fr <span class="hljs-comment"># 左上</span><br>direct2=re <span class="hljs-comment"># 右上</span><br>direct3=le <span class="hljs-comment"># 左下</span><br>direct4=ri <span class="hljs-comment"># 右下</span><br>w=1280<br>h=960<br><span class="hljs-comment">##############################################################################################</span><br><span class="hljs-built_in">cd</span> <span class="hljs-variable">$&#123;root&#125;</span><br><span class="hljs-built_in">rm</span> videos.txt<br><span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> *<span class="hljs-variable">$&#123;suffix&#125;</span>;<span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;file &quot;</span><span class="hljs-variable">$&#123;name&#125;</span><span class="hljs-string">&quot;&quot;</span>&gt;&gt;videos.txt;<span class="hljs-keyword">done</span><br>ffmpeg -f concat -safe 0 -i videos.txt -c copy concat<span class="hljs-variable">$&#123;suffix&#125;</span><br><span class="hljs-comment">##############################################################################################</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="要在FFmpeg中使用多个显卡进行视频处理，你可以使用FFmpeg的-hwaccel选项和-c-v选项。"><a href="#要在FFmpeg中使用多个显卡进行视频处理，你可以使用FFmpeg的-hwaccel选项和-c-v选项。" class="headerlink" title="要在FFmpeg中使用多个显卡进行视频处理，你可以使用FFmpeg的-hwaccel选项和-c:v选项。"></a>要在FFmpeg中使用多个显卡进行视频处理，你可以使用FFmpeg的<code>-hwaccel</code>选项和<code>-c:v</code>选项。</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ffmpeg -hwaccel_device 0,1 -hwaccel cuda -i input.mp4 -c:v h264_nvenc -gpu 0,1 output.mp4<br></code></pre></td></tr></table></figure>
+
+<p>案例：2x2–&gt;4x1；多个视频合并成一个</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-comment"># 视频信息：地址、后缀名、前后左右顺序、分辨率</span><br>root=/home/calmcar/wly/Hozon_ep40/54_white <span class="hljs-comment"># 多个视频存放的目录</span><br>suffix=.mp4 <span class="hljs-comment"># 后缀</span><br>direct1=fr <span class="hljs-comment"># 左上</span><br>direct2=re <span class="hljs-comment"># 右上</span><br>direct3=le <span class="hljs-comment"># 左下</span><br>direct4=ri <span class="hljs-comment"># 右下</span><br>w=1280<br>h=960<br><span class="hljs-comment"># 合并视频</span><br><span class="hljs-built_in">cd</span> <span class="hljs-variable">$&#123;root&#125;</span><br><span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> *<span class="hljs-variable">$&#123;suffix&#125;</span>;<span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;file &quot;</span><span class="hljs-variable">$&#123;name&#125;</span><span class="hljs-string">&quot;&quot;</span> &gt;&gt; videos.txt;<span class="hljs-keyword">done</span><br>ffmpeg -f concat -safe 0 -i videos.txt -c copy concat<span class="hljs-variable">$&#123;suffix&#125;</span><br><span class="hljs-comment"># 2x2--&gt;4x1</span><br><span class="hljs-built_in">mkdir</span> results<br>video_name=concat<br>ffmpeg -i <span class="hljs-variable">$&#123;video_name&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span> -vf crop=<span class="hljs-variable">$w</span>:<span class="hljs-variable">$h</span>:0:0 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_<span class="hljs-variable">$&#123;direct1&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span><br>ffmpeg -i <span class="hljs-variable">$&#123;video_name&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span> -vf crop=<span class="hljs-variable">$w</span>:<span class="hljs-variable">$h</span>:<span class="hljs-variable">$w</span>:0 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_<span class="hljs-variable">$&#123;direct2&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span><br>ffmpeg -i <span class="hljs-variable">$&#123;video_name&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span> -vf crop=<span class="hljs-variable">$w</span>:<span class="hljs-variable">$h</span>:0:<span class="hljs-variable">$h</span> -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_<span class="hljs-variable">$&#123;direct3&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span><br>ffmpeg -i <span class="hljs-variable">$&#123;video_name&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span> -vf crop=<span class="hljs-variable">$w</span>:<span class="hljs-variable">$h</span>:<span class="hljs-variable">$w</span>:<span class="hljs-variable">$h</span> -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_<span class="hljs-variable">$&#123;direct4&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span><br>ffmpeg -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_fr<span class="hljs-variable">$&#123;suffix&#125;</span> -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_le<span class="hljs-variable">$&#123;suffix&#125;</span> -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_re<span class="hljs-variable">$&#123;suffix&#125;</span> -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_ri<span class="hljs-variable">$&#123;suffix&#125;</span> -filter_complex vstack=inputs=4 -b:v 3000k <span class="hljs-variable">$&#123;video_name&#125;</span>4<span class="hljs-variable">$&#123;suffix&#125;</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h2 id="图片筛选时的一些便捷操作"><a href="#图片筛选时的一些便捷操作" class="headerlink" title="图片筛选时的一些便捷操作"></a>图片筛选时的一些便捷操作</h2></li>
+<li><h3 id="当我们有一堆单视角图片，以前视角为准删除了相似帧图片后，希望将保留下来的同帧号左右后视角图片取出时，可以这么干"><a href="#当我们有一堆单视角图片，以前视角为准删除了相似帧图片后，希望将保留下来的同帧号左右后视角图片取出时，可以这么干" class="headerlink" title="当我们有一堆单视角图片，以前视角为准删除了相似帧图片后，希望将保留下来的同帧号左右后视角图片取出时，可以这么干"></a>当我们有一堆单视角图片，以前视角为准删除了相似帧图片后，希望将保留下来的同帧号左右后视角图片取出时，可以这么干</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-comment"># 首先新建四个文件夹，用于保存各视角图片</span><br><span class="hljs-built_in">mkdir</span> fr<br><span class="hljs-built_in">mkdir</span> le<br><span class="hljs-built_in">mkdir</span> re<br><span class="hljs-built_in">mkdir</span> ri<br><span class="hljs-comment"># 首先通过文件名，将四个视角的图片分别保存至四视角文件夹</span><br><span class="hljs-built_in">mv</span> *_fr_* ./fr<br><span class="hljs-built_in">mv</span> *_le_* ./le<br><span class="hljs-built_in">mv</span> *_re_* ./re<br><span class="hljs-built_in">mv</span> *_ri_* ./ri<br><span class="hljs-comment"># 之后我们以前视角作为基准，找出其他文件夹中包含同视频编号、md5值和帧号的图片</span><br><span class="hljs-built_in">cd</span> fr <br><span class="hljs-built_in">ls</span> * &gt; ../fr.txt<br><span class="hljs-built_in">cd</span> ..<br><span class="hljs-comment"># 此时我们主目录中除保存四视角图片文件夹外，还有一个fr.txt中保存有所有前视角图片名</span><br><span class="hljs-comment"># 之后我们要对fr.txt做一些操作</span><br>vim fr.txt<br><span class="hljs-comment"># 在vim界面中输入</span><br>:%s/_fr_/_le_/g <span class="hljs-comment"># 这个命令表示将所有_fr_替换为_le_</span><br>:x <span class="hljs-comment"># 保存退出</span><br><span class="hljs-comment"># 之后在终端输入</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `<span class="hljs-built_in">cat</span> fr.txt`;<span class="hljs-keyword">do</span> <span class="hljs-built_in">mv</span> le/<span class="hljs-variable">$&#123;i&#125;</span> ./;<span class="hljs-keyword">done</span>;<br><span class="hljs-comment"># 这样操作就可以把左视角与前视角文件夹的交集图片取出</span><br><span class="hljs-comment"># 同样对右、后文件夹操作</span><br>vim fr.txt<br><span class="hljs-comment"># 在vim界面中输入</span><br>:%s/_le_/_re_/g <span class="hljs-comment"># 这个命令表示将所有_fr_替换为_le_</span><br>:x <span class="hljs-comment"># 保存退出</span><br><span class="hljs-comment"># 之后在终端输入</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `<span class="hljs-built_in">cat</span> fr.txt`;<span class="hljs-keyword">do</span> <span class="hljs-built_in">mv</span> re/<span class="hljs-variable">$&#123;i&#125;</span> ./;<span class="hljs-keyword">done</span>;<br>vim fr.txt<br><span class="hljs-comment"># 在vim界面中输入</span><br>:%s/_re_/_ri_/g <span class="hljs-comment"># 这个命令表示将所有_fr_替换为_le_</span><br>:x <span class="hljs-comment"># 保存退出</span><br><span class="hljs-comment"># 之后在终端输入</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `<span class="hljs-built_in">cat</span> fr.txt`;<span class="hljs-keyword">do</span> <span class="hljs-built_in">mv</span> ri/<span class="hljs-variable">$&#123;i&#125;</span> ./;<span class="hljs-keyword">done</span>;<br><span class="hljs-comment"># 最后将前视角文件夹中图片取出，删除四文件夹和fr.txt即可</span><br><span class="hljs-built_in">mv</span> ./fr/* ./<br><span class="hljs-built_in">rm</span> -r fr/ re/ ri/ le/ fr.txt<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="遍历文件夹中所有文件（不带后缀）"><a href="#遍历文件夹中所有文件（不带后缀）" class="headerlink" title="遍历文件夹中所有文件（不带后缀）"></a>遍历文件夹中所有文件（不带后缀）</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-built_in">basename</span> --suffix=.png -- *.png<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h2 id="Git-操作"><a href="#Git-操作" class="headerlink" title="Git 操作"></a>Git 操作</h2></li>
+<li><h3 id="git-强制回退，删除已提交（慎用）"><a href="#git-强制回退，删除已提交（慎用）" class="headerlink" title="git 强制回退，删除已提交（慎用）"></a>git 强制回退，删除已提交（<em><strong>慎用</strong></em>）</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git reset --hard commit_id<br>git push --force origin 3dod<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="git-本地仓库关联远程仓库"><a href="#git-本地仓库关联远程仓库" class="headerlink" title="git 本地仓库关联远程仓库"></a>git 本地仓库关联远程仓库</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git remote <span class="hljs-comment"># 查看当前有哪些远程仓库</span><br>git remote -v <span class="hljs-comment"># 列出当前仓库中已配置的远程仓库，并显示它们的 URL</span><br>git remote add &lt;本地仓库名&gt; &lt;远程仓库url&gt;  <span class="hljs-comment"># 本地仓库关联远程仓库</span><br>git remote <span class="hljs-built_in">rm</span>  &lt;远程仓库别名&gt;  <span class="hljs-comment"># 删除远程仓库</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="Git分支操作"><a href="#Git分支操作" class="headerlink" title="Git分支操作"></a>Git分支操作</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git branch                  <span class="hljs-comment"># 查看分支</span><br>git branch  (branchname)     <span class="hljs-comment"># 创建新分支(branchname) </span><br>git checkout -b (branchname) <span class="hljs-comment"># 创建新分支并(branchname) 立即切换到该分支</span><br>git checkout (branchname)   <span class="hljs-comment"># 可以切换到分支(branchname) </span><br>git branch -d (branchname)  <span class="hljs-comment"># 可以删除分支(branchname) </span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="Git-本地仓库添加暂存文件"><a href="#Git-本地仓库添加暂存文件" class="headerlink" title="Git 本地仓库添加暂存文件"></a>Git 本地仓库添加暂存文件</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git add &lt;文件1&gt; &lt;文件1&gt; &lt;文件2&gt; &lt;文件3&gt; ...<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="Git-命令来查看相关文件的状态-查看更新的详细信息"><a href="#Git-命令来查看相关文件的状态-查看更新的详细信息" class="headerlink" title="Git 命令来查看相关文件的状态&#x2F;查看更新的详细信息"></a>Git 命令来查看相关文件的状态&#x2F;查看更新的详细信息</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git status   <span class="hljs-comment"># 查看相关文件的状态</span><br>git diff     <span class="hljs-comment"># 查看尚未缓存的改动更新的详细信息</span><br>git diff --cached  <span class="hljs-comment"># 查看已缓存的改动： </span><br>git diff HEAD      <span class="hljs-comment"># 查看已缓存的与未缓存的所有改动：</span><br>git diff --<span class="hljs-built_in">stat</span>    <span class="hljs-comment"># 显示摘要而非整个 diff</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="Git-取消已缓存的内容"><a href="#Git-取消已缓存的内容" class="headerlink" title="Git 取消已缓存的内容"></a>Git 取消已缓存的内容</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git reset HEAD test.txt   <span class="hljs-comment"># 用于取消已缓存的内容，如我们要取消已提交的test.txt文件.执行完之后，再使用commit提交时，test.txt文件不会被提交。</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="Git-提交暂存文件"><a href="#Git-提交暂存文件" class="headerlink" title="Git 提交暂存文件"></a>Git 提交暂存文件</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git commit -m <span class="hljs-string">&quot;&lt;提交说明&gt;&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="Git-提交修改到远程仓库"><a href="#Git-提交修改到远程仓库" class="headerlink" title="Git 提交修改到远程仓库"></a>Git 提交修改到远程仓库</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git push &lt;本地仓库名&gt; &lt;远程分支名&gt;<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="git-拉取远程仓库"><a href="#git-拉取远程仓库" class="headerlink" title="git 拉取远程仓库"></a>git 拉取远程仓库</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git pull  <span class="hljs-comment">#相当于是从远程获取最新版本并merge到本地</span><br>git fetch  <span class="hljs-comment"># 相当于是从远程获取最新版本到本地，不会自动合并。</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="Git合并操作"><a href="#Git合并操作" class="headerlink" title="Git合并操作"></a>Git合并操作</h3></li>
+</ol>
+<p>合并的时候，最大的难点就是冲突了，合并并不仅仅是简单的文件添加、移除的操作，Git 也会合并修改，如果我们在两个分支中同时修改了同一个文件，这时再合并，就可能会产生冲突，冲突并不可怕，可怕的是要怎样去解决。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git merge branchname <span class="hljs-comment">#将任意分支合并到到当前分支中</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="Git查看提交历史"><a href="#Git查看提交历史" class="headerlink" title="Git查看提交历史"></a>Git查看提交历史</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git <span class="hljs-built_in">log</span> <span class="hljs-comment"># 命令查看</span><br>git –oneline <span class="hljs-comment"># 查看历史记录的简洁版本</span><br>git –graph <span class="hljs-comment"># 查看历史中什么时候出现了分支、合并</span><br>git –reverse <span class="hljs-comment"># 逆向显示所有日志</span><br>git –author <span class="hljs-comment"># 查找指定用户的提交日志</span><br>git –since、–before、 --<span class="hljs-keyword">until</span>、–after <span class="hljs-comment"># 指定筛选日期</span><br>git –no-merges <span class="hljs-comment"># 选项以隐藏合并提交</span><br>git <span class="hljs-built_in">log</span> --autho <span class="hljs-comment"># 查找指定用户的提交日志</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="Git-标签操作"><a href="#Git-标签操作" class="headerlink" title="Git 标签操作"></a>Git 标签操作</h3></li>
+</ol>
+<p>使用标签可以很方便的永远的记住那个特别的提交快照，比如：我们发一个新的版本时，可以给它加一个“vx.x”版本，这样你可以使用git tag给它打上标签。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git tag -a v1.0 <span class="hljs-comment"># 创建一个带注解的标签,可以很方便的永远的记住那个特别的提交快照</span><br>git tag <span class="hljs-comment"># 查看标签</span><br>git tag -a &lt;tagname&gt; -m <span class="hljs-string">&quot;某某标签&quot;</span> <span class="hljs-comment">#指定标签信息</span><br>git tag -a v1.0 d6f7147 <span class="hljs-comment"># d6f7147提交已发布，可对其追加标签 </span><br>git checkout tag_name <span class="hljs-comment"># 但是，这时候 git 可能会提示你当前处于一个“detached HEAD&quot; 状态。因为 tag 相当于是一个快照，是不能更改它的代码的。如果要在 tag 代码的基础上做修改，你需要一个分支： git checkout -b branch_name tag_name</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="配置-gitignore文件"><a href="#配置-gitignore文件" class="headerlink" title="配置.gitignore文件"></a><code>配置.gitignore</code>文件</h3></li>
+</ol>
+<p>把要忽略的文件名填进去，Git就会自动忽略这些文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-comment"># 忽略所有.开头的隐藏文件:</span><br>.*<br><span class="hljs-comment"># 忽略所有.class文件:</span><br>*.class<br><br><span class="hljs-comment"># 排除忽略.gitignore和App.class:</span><br>!.gitignore<br>!App.class<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h2 id="一些有用的小工具"><a href="#一些有用的小工具" class="headerlink" title="一些有用的小工具"></a>一些有用的小工具</h2></li>
+<li><h3 id="pigz多线程压缩"><a href="#pigz多线程压缩" class="headerlink" title="pigz多线程压缩"></a>pigz多线程压缩</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo apt-get install -y pigz<br>tar cv filename | pigz -9 -p16 -k &gt; filename.tar.gz<br><span class="hljs-comment"># -9 为压缩级别 -p16为调用线程数量 -k为保留源文件</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="多线程apt-fast"><a href="#多线程apt-fast" class="headerlink" title="多线程apt-fast"></a>多线程apt-fast</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">sudo apt-add-repository ppa:apt-fast/stable<br>sudo apt-get install apt-fast<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="conda环境迁移"><a href="#conda环境迁移" class="headerlink" title="conda环境迁移"></a>conda环境迁移</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">conda install conda-pack conda-pack<br>conda pack -p /path/to/env -o env_name.tar.gz<br>tar zxcf env_name.tar.gz -C env_name<br><span class="hljs-built_in">source</span> env_name/bin/activate<br>conda un<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h2 id="shell网络命令"><a href="#shell网络命令" class="headerlink" title="shell网络命令"></a>shell网络命令</h2></li>
+<li><h3 id="ssh进行远程登录和执行命令"><a href="#ssh进行远程登录和执行命令" class="headerlink" title="ssh进行远程登录和执行命令"></a>ssh进行远程登录和执行命令</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ssh user@host  <span class="hljs-comment"># user是要登录的用户名，host是要登录的主机名或IP地址</span><br>ssh -L 8080:localhost:80 user@example.com <span class="hljs-comment"># 创建一个SSH隧道，将本地端口8080转发到远程主机http://example.com的80端口</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><h3 id="使用scp进行文件传输"><a href="#使用scp进行文件传输" class="headerlink" title="使用scp进行文件传输"></a>使用scp进行文件传输</h3></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Bash">scp root@192.168.0.101:/var/www/test.txt /var/www/local_dir（本地目录） <span class="hljs-comment"># scp root@192.168.0.101:/var/www/test.txt 把192.168.0.101上的/var/www/test.txt 的文件下载到/var/www/local_dir（本地目录）</span><br>scp -r root@192.168.0.101:/var/www/test（远程目录）   /var/www/（本地目录）<br>scp example.txt user@example.com:/home/user <span class="hljs-comment"># 将本地文件example.txt传输到远程主机http://example.com的/home/user目录下</span><br>scp -r <span class="hljs-built_in">test</span> （本地目录） root@192.168.0.101:/var/www/（远程目录） <span class="hljs-comment"># 把当前目录下的test目录上传到服务器的/var/www/ 目录</span><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Bash大法好</div>
+      <div>http://example.com/2023/12/04/Bash大法好/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Big Shuai</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年12月4日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
