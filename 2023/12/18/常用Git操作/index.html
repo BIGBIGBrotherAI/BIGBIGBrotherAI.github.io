@@ -16,23 +16,23 @@
   <meta name="author" content="Big Shuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="安装paddle-gpu后找不到动态链接库libcuda.so按照文档安装paddle-gpu后，paddle-gpu不能正常运行，并报错。 12345678910111213&gt;&gt;&gt; import paddle&gt;&gt;&gt; paddle.utils.run_check()Running verify PaddlePaddle program ...I1209 22:4">
+    <meta name="description" content="常用Git 操作1.git 强制回退，删除已提交（慎用）12git reset --hard commit_idgit push --force origin 3dod  2.git 本地仓库关联远程仓库1234git remote # 查看当前有哪些远程仓库git remote -v # 列出当前仓库中已配置的远程仓库，并显示它们的 URLgit remote add &lt;本地仓库名&gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安装paddle-gpu后找不到动态链接库libcuda.so">
-<meta property="og:url" content="http://example.com/2023/12/10/%E5%AE%89%E8%A3%85paddle-gpu%E5%90%8E%E6%89%BE%E4%B8%8D%E5%88%B0%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93libcuda-so/index.html">
+<meta property="og:title" content="常用Git操作">
+<meta property="og:url" content="http://example.com/2023/12/18/%E5%B8%B8%E7%94%A8Git%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="BigShuai&#39;sBlog">
-<meta property="og:description" content="安装paddle-gpu后找不到动态链接库libcuda.so按照文档安装paddle-gpu后，paddle-gpu不能正常运行，并报错。 12345678910111213&gt;&gt;&gt; import paddle&gt;&gt;&gt; paddle.utils.run_check()Running verify PaddlePaddle program ...I1209 22:4">
+<meta property="og:description" content="常用Git 操作1.git 强制回退，删除已提交（慎用）12git reset --hard commit_idgit push --force origin 3dod  2.git 本地仓库关联远程仓库1234git remote # 查看当前有哪些远程仓库git remote -v # 列出当前仓库中已配置的远程仓库，并显示它们的 URLgit remote add &lt;本地仓库名&gt;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-12-09T16:12:31.000Z">
-<meta property="article:modified_time" content="2023-12-09T16:50:55.889Z">
+<meta property="article:published_time" content="2023-12-18T02:08:51.000Z">
+<meta property="article:modified_time" content="2023-12-18T02:16:37.566Z">
 <meta property="article:author" content="Big Shuai">
-<meta property="article:tag" content="深度学习">
-<meta property="article:tag" content="paddle">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="项目工程管理">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>安装paddle-gpu后找不到动态链接库libcuda.so - BigShuai&#39;sBlog</title>
+  <title>常用Git操作 - BigShuai&#39;sBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="安装paddle-gpu后找不到动态链接库libcuda.so"></span>
+            <span id="subtitle" data-typed-text="常用Git操作"></span>
           
         </div>
 
@@ -209,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-10 00:12" pubdate>
-          2023年12月10日 凌晨
+        <time datetime="2023-12-18 10:08" pubdate>
+          2023年12月18日 上午
         </time>
       </span>
     
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          1.8k 字
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          14 分钟
+          16 分钟
         
       </span>
     
@@ -269,32 +269,40 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">安装paddle-gpu后找不到动态链接库libcuda.so</h1>
+            <h1 id="seo-header">常用Git操作</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="安装paddle-gpu后找不到动态链接库libcuda-so"><a href="#安装paddle-gpu后找不到动态链接库libcuda-so" class="headerlink" title="安装paddle-gpu后找不到动态链接库libcuda.so"></a>安装<strong>paddle-gpu</strong>后找不到动态链接库libcuda.so</h1><p>按照文档安装<strong>paddle-gpu</strong>后，<strong>paddle-gpu</strong>不能正常运行，并报错。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; import paddle</span><br><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; paddle.utils.run_check()</span><br>Running verify PaddlePaddle program ...<br>I1209 22:43:10.566331  2436 interpretercore.cc:237] New Executor is Running.<br>W1209 22:43:10.566608  2436 gpu_resources.cc:119] Please NOTE: device: 0, GPU Compute Capability: 8.6, Driver API Version: 12.0, Runtime API Version: 11.8<br>W1209 22:43:10.585208  2436 gpu_resources.cc:149] device: 0, cuDNN Version: 8.6.<br>W1209 22:43:12.852262  2436 dynamic_loader.cc:303] The third-party dynamic library (libcuda.so) that Paddle depends on is not configured correctly. (error code is libcuda.so: cannot open shared object file: No such file or directory)<br>  Suggestions:<br>  1. Check if the third-party dynamic library (e.g. CUDA, CUDNN) is installed correctly and its version is matched with paddlepaddle you installed.<br>  2. Configure third-party dynamic library environment variables as follows:<br>  - Linux: set LD_LIBRARY_PATH by `export LD_LIBRARY_PATH=...`<br>  - Windows: set PATH by `set PATH=XXX;<br><br></code></pre></td></tr></table></figure>
+                <h2 id="常用Git-操作"><a href="#常用Git-操作" class="headerlink" title="常用Git 操作"></a>常用Git 操作</h2><h3 id="1-git-强制回退，删除已提交（慎用）"><a href="#1-git-强制回退，删除已提交（慎用）" class="headerlink" title="1.git 强制回退，删除已提交（慎用）"></a>1.git 强制回退，删除已提交（<em><strong>慎用</strong></em>）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git reset --hard commit_id<br>git push --force origin 3dod<br></code></pre></td></tr></table></figure>
 
+<h3 id="2-git-本地仓库关联远程仓库"><a href="#2-git-本地仓库关联远程仓库" class="headerlink" title="2.git 本地仓库关联远程仓库"></a>2.git 本地仓库关联远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git remote <span class="hljs-comment"># 查看当前有哪些远程仓库</span><br>git remote -v <span class="hljs-comment"># 列出当前仓库中已配置的远程仓库，并显示它们的 URL</span><br>git remote add &lt;本地仓库名&gt; &lt;远程仓库url&gt;  <span class="hljs-comment"># 本地仓库关联远程仓库</span><br>git remote <span class="hljs-built_in">rm</span>  &lt;远程仓库别名&gt;  <span class="hljs-comment"># 删除远程仓库</span><br></code></pre></td></tr></table></figure>
 
+<h3 id="3-Git分支操作"><a href="#3-Git分支操作" class="headerlink" title="3.Git分支操作"></a>3.Git分支操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git branch                  <span class="hljs-comment"># 查看分支</span><br>git branch  (branchname)     <span class="hljs-comment"># 创建新分支(branchname) </span><br>git checkout -b (branchname) <span class="hljs-comment"># 创建新分支并(branchname) 立即切换到该分支</span><br>git checkout (branchname)   <span class="hljs-comment"># 可以切换到分支(branchname) </span><br>git branch -d (branchname)  <span class="hljs-comment"># 可以删除分支(branchname) </span><br></code></pre></td></tr></table></figure>
 
-<ul>
-<li>首先从log 的提示中，可以看出是无法链接到<strong>libcuda.so</strong> 文件，先查找<strong>libcuda.so</strong> 文件的位置。作为动态链接库一般都安装在<code>/usr/</code>文件夹下。在<code>/usr/</code>文件夹下查找<strong>libcuda.so</strong> 文件,其路径为<code>/usr/lib/wsl/lib/libcuda.so</code>。</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">user@unutu:sudo find /usr/ -name &quot;libcuda.so&quot;<br>/usr/lib/wsl/lib/libcuda.so<br></code></pre></td></tr></table></figure>
+<h3 id="4-Git-本地仓库添加暂存文件"><a href="#4-Git-本地仓库添加暂存文件" class="headerlink" title="4.Git 本地仓库添加暂存文件"></a>4.Git 本地仓库添加暂存文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git add &lt;文件1&gt; &lt;文件1&gt; &lt;文件2&gt; &lt;文件3&gt; ...<br></code></pre></td></tr></table></figure>
 
-<p>在这里补充一下，我是在conda 的子环境<strong>env_paddle</strong>中安装了paddle-gpu。因此需要将子环境<strong>env_paddle</strong>的库路径 <code>～/miniconda3/envs/env_paddle/lib/</code> 在 <code>～/.bashrc</code> 中加入到环境变量，使用指令<code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/miniconda3/envs/env_paddle/lib/</code>。</p>
-<ul>
-<li>然后在环境变量下创建软连接，具体用法是：<code>ln -s  [源文件]  [软链接文件]</code>。这样paddle就能在环境变量下链接到到<strong>libcuda.so</strong>文件。</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ln -s  /usr/lib/wsl/lib/libcuda.so  ~/miniconda3/envs/env_paddle/lib/libcuda.so<br></code></pre></td></tr></table></figure>
+<h3 id="5-Git-命令来查看相关文件的状态-查看更新的详细信息"><a href="#5-Git-命令来查看相关文件的状态-查看更新的详细信息" class="headerlink" title="5.Git 命令来查看相关文件的状态&#x2F;查看更新的详细信息"></a>5.Git 命令来查看相关文件的状态&#x2F;查看更新的详细信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git status   <span class="hljs-comment"># 查看相关文件的状态</span><br>git diff     <span class="hljs-comment"># 查看尚未缓存的改动更新的详细信息</span><br>git diff --cached  <span class="hljs-comment"># 查看已缓存的改动： </span><br>git diff HEAD      <span class="hljs-comment"># 查看已缓存的与未缓存的所有改动：</span><br>git diff --<span class="hljs-built_in">stat</span>    <span class="hljs-comment"># 显示摘要而非整个 diff</span><br></code></pre></td></tr></table></figure>
 
+<h3 id="6-Git-取消已缓存的内容"><a href="#6-Git-取消已缓存的内容" class="headerlink" title="6.Git 取消已缓存的内容"></a>6.Git 取消已缓存的内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git reset HEAD test.txt   <span class="hljs-comment"># 用于取消已缓存的内容，如我们要取消已提交的test.txt文件.执行完之后，再使用commit提交时，test.txt文件不会被提交。</span><br></code></pre></td></tr></table></figure>
 
+<h3 id="7-Git-提交暂存文件"><a href="#7-Git-提交暂存文件" class="headerlink" title="7.Git 提交暂存文件"></a>7.Git 提交暂存文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git commit -m <span class="hljs-string">&quot;&lt;提交说明&gt;&quot;</span><br></code></pre></td></tr></table></figure>
 
-<ul>
-<li>在shell中输入 <code>python -c &quot;import paddle; paddle.utils.run_check()&quot;</code>，提示<code>PaddlePaddle is installed successfully! </code>。则问题已解决。</li>
-</ul>
+<h3 id="8-Git-提交修改到远程仓库"><a href="#8-Git-提交修改到远程仓库" class="headerlink" title="8.Git 提交修改到远程仓库"></a>8.Git 提交修改到远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git push &lt;本地仓库名&gt; &lt;远程分支名&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="9-Git-拉取远程仓库"><a href="#9-Git-拉取远程仓库" class="headerlink" title="9.Git 拉取远程仓库"></a>9.Git 拉取远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git pull  <span class="hljs-comment">#相当于是从远程获取最新版本并merge到本地</span><br>git fetch  <span class="hljs-comment"># 相当于是从远程获取最新版本到本地，不会自动合并。</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="10-Git合并操作"><a href="#10-Git合并操作" class="headerlink" title="10.Git合并操作"></a>10.Git合并操作</h3><p>合并的时候，最大的难点就是冲突了，合并并不仅仅是简单的文件添加、移除的操作，Git 也会合并修改，如果我们在两个分支中同时修改了同一个文件，这时再合并，就可能会产生冲突，冲突并不可怕，可怕的是要怎样去解决。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git merge branchname <span class="hljs-comment">#将任意分支合并到到当前分支中</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="11-Git查看提交历史"><a href="#11-Git查看提交历史" class="headerlink" title="11.Git查看提交历史"></a>11.Git查看提交历史</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git <span class="hljs-built_in">log</span> <span class="hljs-comment"># 命令查看</span><br>git –oneline <span class="hljs-comment"># 查看历史记录的简洁版本</span><br>git –graph <span class="hljs-comment"># 查看历史中什么时候出现了分支、合并</span><br>git –reverse <span class="hljs-comment"># 逆向显示所有日志</span><br>git –author <span class="hljs-comment"># 查找指定用户的提交日志</span><br>git –since、–before、 --<span class="hljs-keyword">until</span>、–after <span class="hljs-comment"># 指定筛选日期</span><br>git –no-merges <span class="hljs-comment"># 选项以隐藏合并提交</span><br>git <span class="hljs-built_in">log</span> --autho <span class="hljs-comment"># 查找指定用户的提交日志</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="12-Git-标签操作"><a href="#12-Git-标签操作" class="headerlink" title="12.Git 标签操作"></a>12.Git 标签操作</h3><p>使用标签可以很方便的永远的记住那个特别的提交快照，比如：我们发一个新的版本时，可以给它加一个“vx.x”版本，这样你可以使用git tag给它打上标签。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git tag -a v1.0 <span class="hljs-comment"># 创建一个带注解的标签,可以很方便的永远的记住那个特别的提交快照</span><br>git tag <span class="hljs-comment"># 查看标签</span><br>git tag -a &lt;tagname&gt; -m <span class="hljs-string">&quot;某某标签&quot;</span> <span class="hljs-comment">#指定标签信息</span><br>git tag -a v1.0 d6f7147 <span class="hljs-comment"># d6f7147提交已发布，可对其追加标签 </span><br>git checkout tag_name <span class="hljs-comment"># 但是，这时候 git 可能会提示你当前处于一个“detached HEAD&quot; 状态。因为 tag 相当于是一个快照，是不能更改它的代码的。如果要在 tag 代码的基础上做修改，你需要一个分支： git checkout -b branch_name tag_name</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="13-配置-gitignore文件"><a href="#13-配置-gitignore文件" class="headerlink" title="13.配置.gitignore文件"></a>13.<code>配置.gitignore</code>文件</h3><p>把要忽略的文件名填进去，Git就会自动忽略这些文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-comment"># 忽略所有.开头的隐藏文件:</span><br>.*<br><span class="hljs-comment"># 忽略所有.class文件:</span><br>*.class<br><br><span class="hljs-comment"># 排除忽略.gitignore和App.class:</span><br>!.gitignore<br>!App.class<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -313,7 +321,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%97%A5%E5%B8%B8%E9%83%A8%E7%BD%B2%E6%8E%92%E6%95%85/" class="category-chain-item">日常部署排故</a>
+  <a href="/categories/%E6%97%A5%E5%B8%B8/" class="category-chain-item">日常</a>
   
   
 
@@ -328,9 +336,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="print-no-link">#深度学习</a>
+        <a href="/tags/git/" class="print-no-link">#git</a>
       
-        <a href="/tags/paddle/" class="print-no-link">#paddle</a>
+        <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%B7%A5%E7%A8%8B%E7%AE%A1%E7%90%86/" class="print-no-link">#项目工程管理</a>
       
     </div>
   
@@ -342,8 +350,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>安装paddle-gpu后找不到动态链接库libcuda.so</div>
-      <div>http://example.com/2023/12/10/安装paddle-gpu后找不到动态链接库libcuda-so/</div>
+      <div>常用Git操作</div>
+      <div>http://example.com/2023/12/18/常用Git操作/</div>
     </div>
     <div class="license-meta">
       
@@ -355,7 +363,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年12月10日</div>
+          <div>2023年12月18日</div>
         </div>
       
       
@@ -387,18 +395,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/18/%E6%9B%B4%E6%9C%89%E6%95%88%E7%9A%84%E6%9B%B4%E7%A7%AF%E6%9E%81%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%94%9F%E6%B4%BB/" title="更有效的更积极的工作生活">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">更有效的更积极的工作生活</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/06/%E5%9C%A8%E7%BA%BF%E6%A0%87%E5%AE%9A-%E5%89%8D%E5%90%8E%E5%B8%A7%E4%B8%89%E8%A7%92%E6%B5%8B%E9%87%8F/" title="在线标定_前后帧三角测量">
-                        <span class="hidden-mobile">在线标定_前后帧三角测量</span>
+                      <a href="/2023/12/18/%E6%9B%B4%E6%9C%89%E6%95%88%E7%9A%84%E6%9B%B4%E7%A7%AF%E6%9E%81%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%94%9F%E6%B4%BB/" title="更有效的更积极的工作生活">
+                        <span class="hidden-mobile">更有效的更积极的工作生活</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
