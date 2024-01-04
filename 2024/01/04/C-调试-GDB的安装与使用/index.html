@@ -16,26 +16,19 @@
   <meta name="author" content="Big Shuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="基于车道线的Cam2vehicle道路标定1.pitch角的标定：基于假设，车道线线平行，车体和路面平行（车子没有抖动），车道线像素投影到地面为平行的3D点。  怎么判断车子当前是平稳的状态？  优化标量：pitch 目标函数：车道线地面投影3D点平行。（车道线地面投影的夹角。优化目标夹角为0） 优化过程：修改pitch-&gt;R矩阵-&gt;引入鱼眼原图-&gt;3D-&gt;平行判断 2.r">
-<meta property="og:type" content="article">
-<meta property="og:title" content="基于车道线的道路标定">
-<meta property="og:url" content="http://example.com/2023/12/26/%E5%9F%BA%E4%BA%8E%E8%BD%A6%E9%81%93%E7%BA%BF%E7%9A%84%E9%81%93%E8%B7%AF%E6%A0%87%E5%AE%9A/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="C++调试:GDB的安装与使用">
+<meta property="og:url" content="http://example.com/2024/01/04/C-%E8%B0%83%E8%AF%95-GDB%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="BigShuai&#39;sBlog">
-<meta property="og:description" content="基于车道线的Cam2vehicle道路标定1.pitch角的标定：基于假设，车道线线平行，车体和路面平行（车子没有抖动），车道线像素投影到地面为平行的3D点。  怎么判断车子当前是平稳的状态？  优化标量：pitch 目标函数：车道线地面投影3D点平行。（车道线地面投影的夹角。优化目标夹角为0） 优化过程：修改pitch-&gt;R矩阵-&gt;引入鱼眼原图-&gt;3D-&gt;平行判断 2.r">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20231226193154167.png">
-<meta property="article:published_time" content="2023-12-26T11:19:26.000Z">
-<meta property="article:modified_time" content="2023-12-27T06:22:30.660Z">
+<meta property="article:published_time" content="2024-01-04T01:25:30.000Z">
+<meta property="article:modified_time" content="2024-01-04T01:25:30.298Z">
 <meta property="article:author" content="Big Shuai">
-<meta property="article:tag" content="在线标定">
-<meta property="article:tag" content="环视相机">
-<meta property="article:tag" content="车道线检测">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20231226193154167.png">
   
   
   
-  <title>基于车道线的道路标定 - BigShuai&#39;sBlog</title>
+  <title>C++调试:GDB的安装与使用 - BigShuai&#39;sBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +194,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="基于车道线的道路标定"></span>
+            <span id="subtitle" data-typed-text="C++调试:GDB的安装与使用"></span>
           
         </div>
 
@@ -212,8 +205,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-26 19:19" pubdate>
-          2023年12月26日 晚上
+        <time datetime="2024-01-04 09:25" pubdate>
+          2024年1月4日 上午
         </time>
       </span>
     
@@ -224,7 +217,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          454 字
+          0 字
         
       </span>
     
@@ -235,7 +228,7 @@
         
         
         
-          4 分钟
+          1 分钟
         
       </span>
     
@@ -272,34 +265,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">基于车道线的道路标定</h1>
+            <h1 id="seo-header">C++调试:GDB的安装与使用</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="基于车道线的Cam2vehicle道路标定"><a href="#基于车道线的Cam2vehicle道路标定" class="headerlink" title="基于车道线的Cam2vehicle道路标定"></a>基于车道线的Cam2vehicle道路标定</h1><p>1.pitch角的标定：基于假设，车道线线平行，车体和路面平行（车子没有抖动），车道线像素投影到地面为平行的3D点。</p>
-<ul>
-<li><em>怎么判断车子当前是平稳的状态？</em></li>
-</ul>
-<p>优化标量：pitch</p>
-<p>目标函数：车道线地面投影3D点平行。（车道线地面投影的夹角。优化目标夹角为0）</p>
-<p><strong>优化</strong>过程：修改pitch-&gt;R矩阵-&gt;引入鱼眼原图-&gt;3D-&gt;平行判断</p>
-<p>2.roll角度：车道线等宽、灯杆垂直地面\（或者有第三方车道线真值提供）；</p>
-<ul>
-<li><em>怎么准确检测车道线的边缘</em></li>
-<li><em>怎么检测灯杆轴线</em></li>
-</ul>
-<p>3.yaw:多帧判断车子直行，计算车道线投影点和X方向夹角</p>
-<p>多帧<strong>优化</strong>yaw角，使得所有点在一条直线上；</p>
-<p>通过标志牌测距，优化yaw角，结合单目中用内参计算标志牌的距离。结合里程计，标志牌在的x方向的位移等于行进里程。</p>
-<ul>
-<li><em>怎么结合单目中用内参计算标志牌的距离</em></li>
-</ul>
-<p>参考</p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1673568">算法集锦（18） | 自动驾驶 | 车道线检测算法-腾讯云开发者社区-腾讯云 (tencent.com)</a>                                                                                    </p>
-<p> 在HSV空间隔离车道线，效果很糟糕，白色车道线和灰暗地面无法分辨、</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20231226193154167.png" srcset="/img/loading.gif" lazyload alt="使用HSV隔离车道线"></p>
-
+                
                 
               </div>
             
@@ -307,38 +278,6 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" class="category-chain-item">自动驾驶</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E5%9C%A8%E7%BA%BF%E6%A0%87%E5%AE%9A/" class="print-no-link">#在线标定</a>
-      
-        <a href="/tags/%E7%8E%AF%E8%A7%86%E7%9B%B8%E6%9C%BA/" class="print-no-link">#环视相机</a>
-      
-        <a href="/tags/%E8%BD%A6%E9%81%93%E7%BA%BF%E6%A3%80%E6%B5%8B/" class="print-no-link">#车道线检测</a>
-      
-    </div>
   
 </div>
 
@@ -348,8 +287,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>基于车道线的道路标定</div>
-      <div>http://example.com/2023/12/26/基于车道线的道路标定/</div>
+      <div>C++调试:GDB的安装与使用</div>
+      <div>http://example.com/2024/01/04/C-调试-GDB的安装与使用/</div>
     </div>
     <div class="license-meta">
       
@@ -361,7 +300,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年12月26日</div>
+          <div>2024年1月4日</div>
         </div>
       
       
@@ -393,18 +332,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/01/04/%E5%9F%BA%E4%BA%8E%E5%8D%95%E7%9B%AE%E8%A7%86%E8%A7%89%E7%9A%84%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" title="基于单目视觉的三维重建">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">基于单目视觉的三维重建</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/18/Git-CI-CD%E6%90%AD%E5%BB%BA%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BC%96%E8%AF%91%E5%B9%B3%E5%8F%B0/" title="Git CI/CD搭建自动化编译">
-                        <span class="hidden-mobile">Git CI/CD搭建自动化编译</span>
+                      <a href="/2024/01/04/%E5%9F%BA%E4%BA%8E%E5%8D%95%E7%9B%AE%E8%A7%86%E8%A7%89%E7%9A%84%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" title="基于单目视觉的三维重建">
+                        <span class="hidden-mobile">基于单目视觉的三维重建</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
