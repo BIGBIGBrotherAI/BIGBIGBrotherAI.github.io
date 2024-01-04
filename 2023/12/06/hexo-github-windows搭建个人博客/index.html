@@ -23,11 +23,14 @@
 <meta property="og:site_name" content="BigShuai&#39;sBlog">
 <meta property="og:description" content="hexo+github+windows搭建个人博客对于搭载免费的静态网页，gitee是个不错的选择。但由于gitee需要实名备案，最终选择github来搭载个人博客的静态网页。但github上的page只支持public仓库，且支持为一个静态网页I&#x2F;O，且静态网页仓库名必须命名为用户名.github.io。而且通过page功能发布的网页网址定义为https:&#x2F;&#x2F;用户名">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240104095217144.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/4906139-652af9cbae0a1a3d.png">
 <meta property="article:published_time" content="2023-12-06T03:24:09.000Z">
-<meta property="article:modified_time" content="2023-12-09T16:49:12.284Z">
+<meta property="article:modified_time" content="2024-01-04T02:04:29.259Z">
 <meta property="article:author" content="Big Shuai">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240104095217144.png">
   
   
   
@@ -220,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          358 字
+          634 字
         
       </span>
     
@@ -231,7 +234,7 @@
         
         
         
-          3 分钟
+          6 分钟
         
       </span>
     
@@ -274,7 +277,7 @@
               <div class="markdown-body">
                 
                 <h1 id="hexo-github-windows搭建个人博客"><a href="#hexo-github-windows搭建个人博客" class="headerlink" title="hexo+github+windows搭建个人博客"></a>hexo+github+windows搭建个人博客</h1><p>对于搭载免费的静态网页，gitee是个不错的选择。但由于gitee需要实名备案，最终选择github来搭载个人博客的静态网页。但github上的page只支持public仓库，且支持为一个静态网页I&#x2F;O，且静态网页仓库名必须命名为<em><strong>用户名</strong></em>.github.io。而且通过page功能发布的网页网址定义为https:&#x2F;&#x2F;<em><strong>用户名</strong></em>.github.io&#x2F;。</p>
-<h3 id="第一步：GitHub-Page搭建"><a href="#第一步：GitHub-Page搭建" class="headerlink" title="第一步：GitHub Page搭建"></a>第一步：GitHub Page搭建</h3><p>1、在Github新建一个仓库，命名为:<em><strong>用户名</strong></em>.github.io</p>
+<h2 id="个人博客的搭建：从无到有"><a href="#个人博客的搭建：从无到有" class="headerlink" title="个人博客的搭建：从无到有"></a>个人博客的搭建：从无到有</h2><h3 id="第一步：GitHub-Page搭建"><a href="#第一步：GitHub-Page搭建" class="headerlink" title="第一步：GitHub Page搭建"></a>第一步：GitHub Page搭建</h3><p>1、在Github新建一个仓库，命名为:<em><strong>用户名</strong></em>.github.io</p>
 <p>2、 启用GitHub Page：</p>
 <p>点击“Setting”菜单进入设置</p>
 <p>首先点击”Launch automatic page generator”</p>
@@ -286,6 +289,11 @@
 <li><p>安装hexo</p>
 </li>
 </ol>
+<h2 id="本地端个人博客的同步与迁移"><a href="#本地端个人博客的同步与迁移" class="headerlink" title="本地端个人博客的同步与迁移"></a>本地端个人博客的同步与迁移</h2><p>上一节中，在本地创建了hexo项目的目录。其目录结构如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240104095217144.png" srcset="/img/loading.gif" lazyload alt="image-20240104095217144"></p>
+<p>在目录下使用<code>git status</code>，提示<code>fatal: Not a git repository (or any of the parent directories): .git</code>。显然，hexo项目不是以git 仓库的形式与github.io保持同步的。</p>
+<p>因此，当前项目跟一个远程仓库关联起来，好管理环境文件。为了保证文件安全，建立一个hexo分支与main分支区别。把hexo分支pull到本地进行修改，每次修改完本地仓库后，再push到hexo分支，再将两个分支merge。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/4906139-652af9cbae0a1a3d.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 
                 
               </div>
