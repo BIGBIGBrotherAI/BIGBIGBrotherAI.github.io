@@ -16,30 +16,17 @@
   <meta name="author" content="Big Shuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="机器视觉测量与建模1.机器视觉的发展1.1 三维测量与建模的应用举例1.2 视觉处理种的挑战问题2.图像处理的基础2.1 图像的感知与获取2.2 坐标转换基础2.3 透视投影的相机模型2.4 射影几何基础3.特征提取与匹配3.1 相机标定的基本概念相机标定有多种含义，包括辐射定标、颜色校正、几何校准、噪声校准、透镜的像差标准等。本文涉及的主要是几何标定。 3.2 直接线性变换法标定3.3 棋盘格相">
+    <meta name="description" content="机器视觉测量与建模 1.机器视觉的发展 1.1 三维测量与建模的应用举例 1.2 视觉处理种的挑战问题 2.图像处理的基础 2.1 图像的感知与获取 2.2 坐标转换基础 2.3 透视投影的相机模型 2.4 射影几何基础 3.特征提取与匹配 3.1 相机标定的基本概念 相机标定有多种含义，包括辐射定标、颜色校正、几何校准、噪声校准、透镜的像差标准等。本文涉及的主要是几何标定。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器视觉测量与建模">
 <meta property="og:url" content="http://example.com/2024/01/07/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E6%B5%8B%E9%87%8F%E4%B8%8E%E5%BB%BA%E6%A8%A1/index.html">
 <meta property="og:site_name" content="BigShuai&#39;sBlog">
-<meta property="og:description" content="机器视觉测量与建模1.机器视觉的发展1.1 三维测量与建模的应用举例1.2 视觉处理种的挑战问题2.图像处理的基础2.1 图像的感知与获取2.2 坐标转换基础2.3 透视投影的相机模型2.4 射影几何基础3.特征提取与匹配3.1 相机标定的基本概念相机标定有多种含义，包括辐射定标、颜色校正、几何校准、噪声校准、透镜的像差标准等。本文涉及的主要是几何标定。 3.2 直接线性变换法标定3.3 棋盘格相">
+<meta property="og:description" content="机器视觉测量与建模 1.机器视觉的发展 1.1 三维测量与建模的应用举例 1.2 视觉处理种的挑战问题 2.图像处理的基础 2.1 图像的感知与获取 2.2 坐标转换基础 2.3 透视投影的相机模型 2.4 射影几何基础 3.特征提取与匹配 3.1 相机标定的基本概念 相机标定有多种含义，包括辐射定标、颜色校正、几何校准、噪声校准、透镜的像差标准等。本文涉及的主要是几何标定。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107022139498.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107022213078.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107022624283.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107022921135.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107023451654.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107041321631.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107041455296.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/triPlot2.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/cameraProject1.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/cameraProject3.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/birdView3.jpg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/mathD.jpg">
 <meta property="article:published_time" content="2024-01-06T17:23:40.000Z">
-<meta property="article:modified_time" content="2024-01-06T20:59:20.204Z">
+<meta property="article:modified_time" content="2024-01-07T03:26:26.443Z">
 <meta property="article:author" content="Big Shuai">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107022139498.png">
   
   
   
@@ -96,8 +83,6 @@
   
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head>
 
 
@@ -236,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.7k 字
+          7.1k 字
         
       </span>
     
@@ -247,7 +232,7 @@
         
         
         
-          57 分钟
+          60 分钟
         
       </span>
     
@@ -289,90 +274,331 @@
             
               <div class="markdown-body">
                 
-                <h1 id="机器视觉测量与建模"><a href="#机器视觉测量与建模" class="headerlink" title="机器视觉测量与建模"></a>机器视觉测量与建模</h1><h2 id="1-机器视觉的发展"><a href="#1-机器视觉的发展" class="headerlink" title="1.机器视觉的发展"></a>1.机器视觉的发展</h2><h3 id="1-1-三维测量与建模的应用举例"><a href="#1-1-三维测量与建模的应用举例" class="headerlink" title="1.1 三维测量与建模的应用举例"></a>1.1 三维测量与建模的应用举例</h3><h3 id="1-2-视觉处理种的挑战问题"><a href="#1-2-视觉处理种的挑战问题" class="headerlink" title="1.2 视觉处理种的挑战问题"></a>1.2 视觉处理种的挑战问题</h3><h2 id="2-图像处理的基础"><a href="#2-图像处理的基础" class="headerlink" title="2.图像处理的基础"></a>2.图像处理的基础</h2><h3 id="2-1-图像的感知与获取"><a href="#2-1-图像的感知与获取" class="headerlink" title="2.1 图像的感知与获取"></a>2.1 图像的感知与获取</h3><h3 id="2-2-坐标转换基础"><a href="#2-2-坐标转换基础" class="headerlink" title="2.2 坐标转换基础"></a>2.2 坐标转换基础</h3><h3 id="2-3-透视投影的相机模型"><a href="#2-3-透视投影的相机模型" class="headerlink" title="2.3 透视投影的相机模型"></a>2.3 透视投影的相机模型</h3><h3 id="2-4-射影几何基础"><a href="#2-4-射影几何基础" class="headerlink" title="2.4 射影几何基础"></a>2.4 射影几何基础</h3><h2 id="3-特征提取与匹配"><a href="#3-特征提取与匹配" class="headerlink" title="3.特征提取与匹配"></a>3.特征提取与匹配</h2><h3 id="3-1-相机标定的基本概念"><a href="#3-1-相机标定的基本概念" class="headerlink" title="3.1 相机标定的基本概念"></a>3.1 相机标定的基本概念</h3><p>相机标定有多种含义，包括辐射定标、颜色校正、几何校准、噪声校准、透镜的像差标准等。本文涉及的主要是几何标定。</p>
-<h3 id="3-2-直接线性变换法标定"><a href="#3-2-直接线性变换法标定" class="headerlink" title="3.2 直接线性变换法标定"></a>3.2 直接线性变换法标定</h3><h3 id="3-3-棋盘格相机标定方法"><a href="#3-3-棋盘格相机标定方法" class="headerlink" title="3.3 棋盘格相机标定方法"></a>3.3 棋盘格相机标定方法</h3><h3 id="3-4-基于灭点-平行线消失点-相机标定方法"><a href="#3-4-基于灭点-平行线消失点-相机标定方法" class="headerlink" title="3.4 基于灭点(平行线消失点)相机标定方法"></a>3.4 基于灭点(平行线消失点)相机标定方法</h3><h4 id="3-4-1-基于灭点-平行线消失点-相机标定方法概述"><a href="#3-4-1-基于灭点-平行线消失点-相机标定方法概述" class="headerlink" title="3.4.1 基于灭点(平行线消失点)相机标定方法概述"></a>3.4.1 基于灭点(平行线消失点)相机标定方法概述</h4><ul>
+                <h1 id="机器视觉测量与建模">机器视觉测量与建模</h1>
+<h2 id="机器视觉的发展">1.机器视觉的发展</h2>
+<h3 id="三维测量与建模的应用举例">1.1 三维测量与建模的应用举例</h3>
+<h3 id="视觉处理种的挑战问题">1.2 视觉处理种的挑战问题</h3>
+<h2 id="图像处理的基础">2.图像处理的基础</h2>
+<h3 id="图像的感知与获取">2.1 图像的感知与获取</h3>
+<h3 id="坐标转换基础">2.2 坐标转换基础</h3>
+<h3 id="透视投影的相机模型">2.3 透视投影的相机模型</h3>
+<h3 id="射影几何基础">2.4 射影几何基础</h3>
+<h2 id="特征提取与匹配">3.特征提取与匹配</h2>
+<h3 id="相机标定的基本概念">3.1 相机标定的基本概念</h3>
+<p>相机标定有多种含义，包括辐射定标、颜色校正、几何校准、噪声校准、透镜的像差标准等。本文涉及的主要是几何标定。</p>
+<h3 id="直接线性变换法标定">3.2 直接线性变换法标定</h3>
+<h3 id="棋盘格相机标定方法">3.3 棋盘格相机标定方法</h3>
+<h3 id="基于灭点平行线消失点相机标定方法">3.4
+基于灭点(平行线消失点)相机标定方法</h3>
+<h4 id="基于灭点平行线消失点相机标定方法概述">3.4.1
+基于灭点(平行线消失点)相机标定方法概述</h4>
+<ul>
 <li>灭点的定义</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107022139498.png" srcset="/img/loading.gif" lazyload alt="image-20240107022139498"></p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107022139498.png" srcset="/img/loading.gif" lazyload
+alt="image-20240107022139498" />
+<figcaption aria-hidden="true">image-20240107022139498</figcaption>
+</figure>
 <ul>
 <li>灭点有三种</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107022213078.png" srcset="/img/loading.gif" lazyload alt="image-20240107022213078"></p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107022213078.png" srcset="/img/loading.gif" lazyload
+alt="image-20240107022213078" />
+<figcaption aria-hidden="true">image-20240107022213078</figcaption>
+</figure>
 <ul>
-<li>通过灭点的正交方向确定<strong>绝对圆锥曲线</strong> $IACω$,标内参</li>
+<li>通过灭点的正交方向确定<strong>绝对圆锥曲线</strong> <span
+class="math inline">\(IACω\)</span>,标内参</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107022624283.png" srcset="/img/loading.gif" lazyload alt="image-20240107022624283"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107022921135.png" srcset="/img/loading.gif" lazyload alt="image-20240107022921135"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107023451654.png" srcset="/img/loading.gif" lazyload alt="image-20240107023451654"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107041321631.png" srcset="/img/loading.gif" lazyload alt="image-20240107041321631"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107041455296.png" srcset="/img/loading.gif" lazyload alt="image-20240107041455296"></p>
-<h4 id="3-4-2-基于代数和几何方法的单张图像线性标定分析和实现"><a href="#3-4-2-基于代数和几何方法的单张图像线性标定分析和实现" class="headerlink" title="3.4.2 基于代数和几何方法的单张图像线性标定分析和实现"></a>3.4.2 基于代数和几何方法的单张图像线性标定分析和实现</h4><p>已知单张具有3条正交消失线的场景图像（或者至少有2条正交线，此时假设主点为图像中心），则可直接估算相机内参，另外如果已知场景图像中某些物体的实际尺寸或者坐标，则还可估计相机外参旋转矩阵 $R$ ，相机外参平移向量 $T$ 。</p>
-<p>在基于3个消失点坐标计算已知的情况下，可以分别通过计算相机内参 $K$ 、外参 $R$ 、 $T$ 这三个步骤逐渐恢复相机位姿。其中 $K$ 需具有焦距 $f$ ，主点 $\left(u_0 ,v_0 \right)$ 三个独立未知变量。</p>
-<h5 id="计算相机内参K"><a href="#计算相机内参K" class="headerlink" title="计算相机内参K"></a>计算相机内参K</h5><ul>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107022624283.png" srcset="/img/loading.gif" lazyload
+alt="image-20240107022624283" />
+<figcaption aria-hidden="true">image-20240107022624283</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107022921135.png" srcset="/img/loading.gif" lazyload
+alt="image-20240107022921135" />
+<figcaption aria-hidden="true">image-20240107022921135</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107023451654.png" srcset="/img/loading.gif" lazyload
+alt="image-20240107023451654" />
+<figcaption aria-hidden="true">image-20240107023451654</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107041321631.png" srcset="/img/loading.gif" lazyload
+alt="image-20240107041321631" />
+<figcaption aria-hidden="true">image-20240107041321631</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-20240107041455296.png" srcset="/img/loading.gif" lazyload
+alt="image-20240107041455296" />
+<figcaption aria-hidden="true">image-20240107041455296</figcaption>
+</figure>
+<h4 id="基于代数和几何方法的单张图像线性标定分析和实现">3.4.2
+基于代数和几何方法的单张图像线性标定分析和实现</h4>
+<p>已知单张具有3条正交消失线的场景图像（或者至少有2条正交线，此时假设主点为图像中心），则可直接估算相机内参，另外如果已知场景图像中某些物体的实际尺寸或者坐标，则还可估计相机外参旋转矩阵
+<span class="math inline">\(R\)</span> ，相机外参平移向量 <span
+class="math inline">\(T\)</span> 。</p>
+<p>在基于3个消失点坐标计算已知的情况下，可以分别通过计算相机内参 <span
+class="math inline">\(K\)</span> 、外参 <span
+class="math inline">\(R\)</span> 、 <span
+class="math inline">\(T\)</span> 这三个步骤逐渐恢复相机位姿。其中 <span
+class="math inline">\(K\)</span> 需具有焦距 <span
+class="math inline">\(f\)</span> ，主点 <span
+class="math inline">\(\left(u_0 ,v_0 \right)\)</span>
+三个独立未知变量。</p>
+<h5 id="计算相机内参k">计算相机内参K</h5>
+<ul>
 <li>代数方法：</li>
 </ul>
-<p>单张图像场景中，三个正交的消失线方向向量 $e_1 &#x3D;\left\lbrack \begin{array}{c} 1\ 0\ 0 \end{array}\right\rbrack ,e_2 &#x3D;\left\lbrack \begin{array}{c} 0\ 1\ 0 \end{array}\right\rbrack ,e_3 &#x3D;\left\lbrack \begin{array}{c} 0\ 0\ 1 \end{array}\right\rbrack$ ， 满足投影公式</p>
-<p> $\lambda_i \left\lbrack \begin{array}{c} x\ 1 \end{array}\right\rbrack &#x3D;K*\left\lbrack R,t\right\rbrack *\left\lbrack \begin{array}{c} e_i \ 0 \end{array}\right\rbrack$ ,                                                      (1)</p>
-<p>注意位于无限远处的消失点齐次坐标是 $\left\lbrack \begin{array}{c} e_i \ 0 \end{array}\right\rbrack$ .整理上式，得：</p>
-<p> $e_i &#x3D;\lambda_i R^T K^{-1} \left\lbrack \begin{array}{c} x\ 1 \end{array}\right\rbrack$ ，                                                             (2)</p>
-<p>又由正交性约束,有 ${e_i }^T e_j &#x3D;0$ ,得：</p>
-<p>,                                                        (3)</p>
+<p>单张图像场景中，三个正交的消失线方向向量 <span
+class="math inline">\(e_1 =\left\lbrack \begin{array}{c} 1\\ 0\\ 0
+\end{array}\right\rbrack ,e_2 =\left\lbrack \begin{array}{c} 0\\ 1\\ 0
+\end{array}\right\rbrack ,e_3 =\left\lbrack \begin{array}{c} 0\\ 0\\ 1
+\end{array}\right\rbrack\)</span> ， 满足投影公式</p>
+<p><span class="math inline">\(\lambda_i \left\lbrack \begin{array}{c}
+x\\ 1 \end{array}\right\rbrack =K*\left\lbrack R,t\right\rbrack
+*\left\lbrack \begin{array}{c} e_i \\ 0
+\end{array}\right\rbrack\)</span> , (1)</p>
+<p>注意位于无限远处的消失点齐次坐标是 <span
+class="math inline">\(\left\lbrack \begin{array}{c} e_i \\ 0
+\end{array}\right\rbrack\)</span> .整理上式，得：</p>
+<p><span class="math inline">\(e_i =\lambda_i R^T K^{-1} \left\lbrack
+\begin{array}{c} x\\ 1 \end{array}\right\rbrack\)</span> ， (2)</p>
+<p>又由正交性约束,有 <span class="math inline">\({e_i }^T e_j
+=0\)</span> ,得：</p>
+<p>​ (3)</p>
 <p>K的求解通过(3)求解，实现为calIntrinsicFrom3VanishingPts.m函数。</p>
 <ul>
 <li><p>几何方法：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/triPlot2.jpg" srcset="/img/loading.gif" lazyload alt="triPlot2"></p>
-</li>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/triPlot2.jpg" srcset="/img/loading.gif" lazyload
+alt="triPlot2" />
+<figcaption aria-hidden="true">triPlot2</figcaption>
+</figure></li>
 </ul>
-<p>四面体PABC为直角四面体（顶点P为互相垂直的三条棱线经过），底面三角形ABC为像平面，A,B,C为图像平面的三个消失点坐标，其中z值为 $f$ ，P点为相机光心，P点到底面ABC的距离为焦距 $f$ ，垂足为底面三角形ABC的垂心，垂心坐标为相机主点 $O_c \left(u_0 ,v_0 \right)$ .</p>
-<h5 id="计算外参旋转矩阵R"><a href="#计算外参旋转矩阵R" class="headerlink" title="计算外参旋转矩阵R"></a>计算外参旋转矩阵R</h5><ul>
+<p>四面体PABC为直角四面体（顶点P为互相垂直的三条棱线经过），底面三角形ABC为像平面，A,B,C为图像平面的三个消失点坐标，其中z值为
+<span class="math inline">\(f\)</span>
+，P点为相机光心，P点到底面ABC的距离为焦距 <span
+class="math inline">\(f\)</span>
+，垂足为底面三角形ABC的垂心，垂心坐标为相机主点 <span
+class="math inline">\(O_c \left(u_0 ,v_0 \right)\)</span> .</p>
+<h5 id="计算外参旋转矩阵r">计算外参旋转矩阵R</h5>
+<ul>
 <li>代数方法：</li>
 </ul>
 <p>由</p>
-<p> $\lambda_i {\left\lbrack \begin{array}{c} x_1 \ x_2 \ 1 \end{array}\right\rbrack }_i &#x3D;{K<em>R</em>e}_i$ ,                                                      (4)</p>
-<p>两边左乘 $K^{-1}$ ，</p>
-<p> $\lambda_i K^{-1} {\left\lbrack \begin{array}{c} x_1 \ x_2 \ 1 \end{array}\right\rbrack }_i &#x3D;{R*e}_i$ ,                                                      (5)</p>
-<p>注意： ${R*e}<em>1 &#x3D;\left\lbrack r</em>{1,} r_2 ,r_3 \right\rbrack \left\lbrack \begin{array}{c} 1\ 0\ 0 \end{array}\right\rbrack &#x3D;r_1$ ,得：</p>
-<p> ${r_i &#x3D;\lambda }_i K^{-1} {\left\lbrack \begin{array}{c} x_1 \ x_2 \ 1 \end{array}\right\rbrack }_i$ ，(其中 $\lambda_i$ 可以通过 $\left|r_i \right|&#x3D;1$ 约束求解，这里 $r_i$ 为外参旋转矩阵的第 $i$ 列)</p>
+<p><span class="math inline">\(\lambda_i {\left\lbrack \begin{array}{c}
+x_1 \\ x_2 \\ 1 \end{array}\right\rbrack }_i ={K*R*e}_i\)</span> ,
+(4)</p>
+<p>两边左乘 <span class="math inline">\(K^{-1}\)</span> ，</p>
+<p><span class="math inline">\(\lambda_i K^{-1} {\left\lbrack
+\begin{array}{c} x_1 \\ x_2 \\ 1 \end{array}\right\rbrack }_i
+={R*e}_i\)</span> , (5)</p>
+<p>注意： <span class="math inline">\({R*e}_1 =\left\lbrack r_{1,} r_2
+,r_3 \right\rbrack \left\lbrack \begin{array}{c} 1\\ 0\\ 0
+\end{array}\right\rbrack =r_1\)</span> ,得：</p>
+<p><span class="math inline">\({r_i =\lambda }_i K^{-1} {\left\lbrack
+\begin{array}{c} x_1 \\ x_2 \\ 1 \end{array}\right\rbrack }_i\)</span>
+，(其中 <span class="math inline">\(\lambda_i\)</span> 可以通过 <span
+class="math inline">\(\left\|r_i \right\|=1\)</span> 约束求解，这里
+<span class="math inline">\(r_i\)</span> 为外参旋转矩阵的第 <span
+class="math inline">\(i\)</span> 列)</p>
 <ul>
 <li>几何方法：</li>
 </ul>
-<p> $r_i &#x3D;\frac{\vec{P{\mathrm{V}}_i } }{\left|\vec{P{\mathrm{V}}_i } \right|}$ ，(其中 ${\mathrm{V}}_i$ 为消失点， $\vec{P{\mathrm{V}}_i }$ 为相机光心到像平面消失点的三维方向矢量也即空间消失线的三维方向矢量！)</p>
-<h5 id="计算外参平移向量T"><a href="#计算外参平移向量T" class="headerlink" title="计算外参平移向量T"></a>计算外参平移向量T</h5><ul>
+<p><span class="math inline">\(r_i =\frac{\vec{P{\mathrm{V}}_i }
+}{\left\|\vec{P{\mathrm{V}}_i } \right\|}\)</span> ，(其中 <span
+class="math inline">\({\mathrm{V}}_i\)</span> 为消失点， <span
+class="math inline">\(\vec{P{\mathrm{V}}_i }\)</span>
+为相机光心到像平面消失点的三维方向矢量也即空间消失线的三维方向矢量！)</p>
+<h5 id="计算外参平移向量t">计算外参平移向量T</h5>
+<ul>
 <li>代数方法：</li>
 </ul>
 <p>这里边计算边分析推导：</p>
-<p> $$ \lambda_i {\left\lbrack \begin{array}{c} x\ 1 \end{array}\right\rbrack } &#x3D;K*\left\lbrack R,t\right\rbrack *{\left\lbrack \begin{array}{c} X\ 1 \end{array}\right\rbrack }_i $$</p>
-<p>展开，写成标量形式，即 $\lambda_i \left\lbrack \begin{array}{c} x_1 \ x_2 \ 1 \end{array}\right\rbrack &#x3D;\left\lbrack \begin{array}{ccc} f &amp; 0 &amp; u_0 \ 0 &amp; f &amp; v_0 \ 0 &amp; 0 &amp; 1 \end{array}\right\rbrack *\left\lbrack \begin{array}{cccc} R_{11}  &amp; R_{12}  &amp; R_{13}  &amp; t_1 \ R_{21}  &amp; R_{22}  &amp; R_{23}  &amp; t_2 \ R_{31}  &amp; R_{32}  &amp; R_{33}  &amp; t_3  \end{array}\right\rbrack *\left\lbrack \begin{array}{c} X_1 \ X_2 \ X_3 \ 1 \end{array}\right\rbrack$</p>
-<p>其中内参矩阵 $K$ ：<br> $K&#x3D;\displaystyle \left(\begin{array}{ccc} f &amp; 0 &amp; u_0 \ 0 &amp; f &amp; v_0 \ 0 &amp; 0 &amp; 1 \end{array}\right)$</p>
-<p>外参旋转矩阵 $R$ ：</p>
-<p> $R &#x3D;\displaystyle \left(\begin{array}{ccc} R_{1,1}  &amp; R_{1,2}  &amp; R_{1,3} \ R_{2,1}  &amp; R_{2,2}  &amp; R_{2,3} \ R_{3,1}  &amp; R_{3,2}  &amp; R_{3,3}  \end{array}\right)$</p>
-<p>外参平移向量 $t$ ：</p>
-<p> $t &#x3D;\displaystyle \left(\begin{array}{c} t_1 \ t_2 \ t_3  \end{array}\right)$</p>
-<p>世界坐标点 $X$ ：</p>
-<p> $X &#x3D;\displaystyle \left(\begin{array}{c} X_1 \ X_2 \ X_3  \end{array}\right)$</p>
-<p>像点坐标 $x$ ：<br> $x &#x3D;\displaystyle \left(\begin{array}{c} x_1 \ x_2  \end{array}\right)$</p>
-<p> $express1 &#x3D;\displaystyle \left(\begin{array}{c} f,t_1 +t_3 ,u_0 +X_1 ,{\left(R_{1,1} ,f+R_{3,1} ,u_0 \right)}+X_2 ,{\left(R_{1,2} ,f+R_{3,2} ,u_0 \right)}+X_3 ,{\left(R_{1,3} ,f+R_{3,3} ,u_0 \right)}\ f,t_2 +t_3 ,v_0 +X_1 ,{\left(R_{2,1} ,f+R_{3,1} ,v_0 \right)}+X_2 ,{\left(R_{2,2} ,f+R_{3,2} ,v_0 \right)}+X_3 ,{\left(R_{2,3} ,f+R_{3,3} ,v_0 \right)}\ t_3 +R_{3,1} ,X_1 +R_{3,2} ,X_2 +R_{3,3} ,X_3  \end{array}\right)$</p>
-<p> $express2 &#x3D;\displaystyle \begin{array}{l} \left(\begin{array}{c} \frac{f,t_1 +t_3 ,u_0 +X_1 ,{\left(R_{1,1} ,f+R_{3,1} ,u_0 \right)}+X_2 ,{\left(R_{1,2} ,f+R_{3,2} ,u_0 \right)}+X_3 ,{\left(R_{1,3} ,f+R_{3,3} ,u_0 \right)}}{\sigma_1 }-x_1 \ \frac{f,t_2 +t_3 ,v_0 +X_1 ,{\left(R_{2,1} ,f+R_{3,1} ,v_0 \right)}+X_2 ,{\left(R_{2,2} ,f+R_{3,2} ,v_0 \right)}+X_3 ,{\left(R_{2,3} ,f+R_{3,3} ,v_0 \right)}}{\sigma_1 }-x_2  \end{array}\right)\\mathrm{},\{where}\\sigma_1 &#x3D;t_3 +R_{3,1} ,X_1 +R_{3,2} ,X_2 +R_{3,3} ,X_3 \end{array}$</p>
-<p>把 $t_1 ,t_2 ,t_3$ 从上述公式独立出来，令express2&#x3D;0，重新整理可得到下式：</p>
-<p> $\left\lbrack \begin{array}{ccc} f &amp; 0 &amp; u_0 -x_1 \ 0 &amp; f &amp; v_0 -x_2  \end{array}\right\rbrack \left\lbrack \begin{array}{c} t_1 \ t_2 \ t_3  \end{array}\right\rbrack &#x3D;\left\lbrack \begin{array}{c} x_1 \left(R_{3,1} X_1 +R_{3,2} X_2 +R_{3,3} X_3 \right)-X_1 \left(R_{1,1} f+R_{3,1} u_0 \right)-X_2 \left(R_{1,2} f+R_{3,2} u_0 \right)-X_3 \left(R_{1,3} f+R_{3,3} u_0 \right)\ x_2 \left(R_{3,1} X_1 +R_{3,2} X_2 +R_{3,3} X_3 \right)-X_1 \left(R_{2,1} f+R_{3,1} v_0 \right)-X_2 \left(R_{2,2} f+R_{3,2} v_0 \right)-X_3 \left(R_{2,3} f+R_{3,3} v_0 \right) \end{array}\right\rbrack$ (6a)</p>
+<p><span class="math display">\[ \lambda_i {\left\lbrack
+\begin{array}{c} x\\ 1 \end{array}\right\rbrack } =K*\left\lbrack
+R,t\right\rbrack *{\left\lbrack \begin{array}{c} X\\ 1
+\end{array}\right\rbrack }_i \]</span></p>
+<p>展开，写成标量形式，即 <span class="math inline">\(\lambda_i
+\left\lbrack \begin{array}{c} x_1 \\ x_2 \\ 1 \end{array}\right\rbrack
+=\left\lbrack \begin{array}{ccc} f &amp; 0 &amp; u_0 \\ 0 &amp; f &amp;
+v_0 \\ 0 &amp; 0 &amp; 1 \end{array}\right\rbrack *\left\lbrack
+\begin{array}{cccc} R_{11}  &amp; R_{12}  &amp; R_{13}  &amp; t_1 \\
+R_{21}  &amp; R_{22}  &amp; R_{23}  &amp; t_2 \\ R_{31}  &amp;
+R_{32}  &amp; R_{33}  &amp; t_3  \end{array}\right\rbrack *\left\lbrack
+\begin{array}{c} X_1 \\ X_2 \\ X_3 \\ 1
+\end{array}\right\rbrack\)</span></p>
+<p>其中内参矩阵 <span class="math inline">\(K\)</span> ： <span
+class="math inline">\(K=\displaystyle \left(\begin{array}{ccc} f &amp; 0
+&amp; u_0 \\ 0 &amp; f &amp; v_0 \\ 0 &amp; 0 &amp; 1
+\end{array}\right)\)</span></p>
+<p>外参旋转矩阵 <span class="math inline">\(R\)</span> ：</p>
+<p><span class="math inline">\(R =\displaystyle \left(\begin{array}{ccc}
+R_{1,1}  &amp; R_{1,2}  &amp; R_{1,3} \\ R_{2,1}  &amp; R_{2,2}  &amp;
+R_{2,3} \\ R_{3,1}  &amp; R_{3,2}  &amp;
+R_{3,3}  \end{array}\right)\)</span></p>
+<p>外参平移向量 <span class="math inline">\(t\)</span> ：</p>
+<p><span class="math inline">\(t =\displaystyle \left(\begin{array}{c}
+t_1 \\ t_2 \\ t_3  \end{array}\right)\)</span></p>
+<p>世界坐标点 <span class="math inline">\(X\)</span> ：</p>
+<p><span class="math inline">\(X =\displaystyle \left(\begin{array}{c}
+X_1 \\ X_2 \\ X_3  \end{array}\right)\)</span></p>
+<p>像点坐标 <span class="math inline">\(x\)</span> ： <span
+class="math inline">\(x =\displaystyle \left(\begin{array}{c} x_1 \\
+x_2  \end{array}\right)\)</span></p>
+<p><span class="math inline">\(express1 =\displaystyle
+\left(\begin{array}{c} f\,t_1 +t_3 \,u_0 +X_1 \,{\left(R_{1,1}
+\,f+R_{3,1} \,u_0 \right)}+X_2 \,{\left(R_{1,2} \,f+R_{3,2} \,u_0
+\right)}+X_3 \,{\left(R_{1,3} \,f+R_{3,3} \,u_0 \right)}\\ f\,t_2 +t_3
+\,v_0 +X_1 \,{\left(R_{2,1} \,f+R_{3,1} \,v_0 \right)}+X_2
+\,{\left(R_{2,2} \,f+R_{3,2} \,v_0 \right)}+X_3 \,{\left(R_{2,3}
+\,f+R_{3,3} \,v_0 \right)}\\ t_3 +R_{3,1} \,X_1 +R_{3,2} \,X_2 +R_{3,3}
+\,X_3  \end{array}\right)\)</span></p>
+<p><span class="math inline">\(express2 =\displaystyle \begin{array}{l}
+\left(\begin{array}{c} \frac{f\,t_1 +t_3 \,u_0 +X_1 \,{\left(R_{1,1}
+\,f+R_{3,1} \,u_0 \right)}+X_2 \,{\left(R_{1,2} \,f+R_{3,2} \,u_0
+\right)}+X_3 \,{\left(R_{1,3} \,f+R_{3,3} \,u_0 \right)}}{\sigma_1 }-x_1
+\\ \frac{f\,t_2 +t_3 \,v_0 +X_1 \,{\left(R_{2,1} \,f+R_{3,1} \,v_0
+\right)}+X_2 \,{\left(R_{2,2} \,f+R_{3,2} \,v_0 \right)}+X_3
+\,{\left(R_{2,3} \,f+R_{3,3} \,v_0 \right)}}{\sigma_1
+}-x_2  \end{array}\right)\\\mathrm{}\,\\{where}\\\sigma_1 =t_3 +R_{3,1}
+\,X_1 +R_{3,2} \,X_2 +R_{3,3} \,X_3 \end{array}\)</span></p>
+<p>把 <span class="math inline">\(t_1 ,t_2 ,t_3\)</span>
+从上述公式独立出来，令express2=0，重新整理可得到下式：</p>
+<p><span class="math inline">\(\left\lbrack \begin{array}{ccc} f &amp; 0
+&amp; u_0 -x_1 \\ 0 &amp; f &amp; v_0 -x_2  \end{array}\right\rbrack
+\left\lbrack \begin{array}{c} t_1 \\ t_2 \\
+t_3  \end{array}\right\rbrack =\left\lbrack \begin{array}{c} x_1
+\left(R_{3,1} X_1 +R_{3,2} X_2 +R_{3,3} X_3 \right)-X_1 \left(R_{1,1}
+f+R_{3,1} u_0 \right)-X_2 \left(R_{1,2} f+R_{3,2} u_0 \right)-X_3
+\left(R_{1,3} f+R_{3,3} u_0 \right)\\ x_2 \left(R_{3,1} X_1 +R_{3,2} X_2
++R_{3,3} X_3 \right)-X_1 \left(R_{2,1} f+R_{3,1} v_0 \right)-X_2
+\left(R_{2,2} f+R_{3,2} v_0 \right)-X_3 \left(R_{2,3} f+R_{3,3} v_0
+\right) \end{array}\right\rbrack\)</span> (6a)</p>
 <p>为便于从形式上公式简化，把上式写成如下形式：</p>
-<p> $\left\lbrack \begin{array}{ccc} f &amp; 0 &amp; u_0 -x_1 \ 0 &amp; f &amp; v_0 -x_2  \end{array}\right\rbrack \left\lbrack \begin{array}{c} t_1 \ t_2 \ t_3  \end{array}\right\rbrack &#x3D;\left\lbrack \begin{array}{c} r_3 P_w \left(x_1 -u_0 \right)-f\left(r_1 P_w \right)\ r_3 P_w \left(x_2 -v_0 \right)-f\left(r_2 P_w \right) \end{array}\right\rbrack$ ，                                           (6b)</p>
-<p>其中： $r_i &#x3D;\left\lbrack R_{i,1} ,R_{i,2} ,R_{i,3} \right\rbrack ,P_w &#x3D;\left\lbrack \begin{array}{c} X_1 \ X_2 \ X_3  \end{array}\right\rbrack$ ,其余都为标量值。工程上计算直接使用(6a)式，svd求解即可。</p>
+<p><span class="math inline">\(\left\lbrack \begin{array}{ccc} f &amp; 0
+&amp; u_0 -x_1 \\ 0 &amp; f &amp; v_0 -x_2  \end{array}\right\rbrack
+\left\lbrack \begin{array}{c} t_1 \\ t_2 \\
+t_3  \end{array}\right\rbrack =\left\lbrack \begin{array}{c} r_3 P_w
+\left(x_1 -u_0 \right)-f\left(r_1 P_w \right)\\ r_3 P_w \left(x_2 -v_0
+\right)-f\left(r_2 P_w \right) \end{array}\right\rbrack\)</span> ，
+(6b)</p>
+<p>其中： <span class="math inline">\(r_i =\left\lbrack R_{i,1} ,R_{i,2}
+,R_{i,3} \right\rbrack ,P_w =\left\lbrack \begin{array}{c} X_1 \\ X_2 \\
+X_3  \end{array}\right\rbrack\)</span>
+,其余都为标量值。工程上计算直接使用(6a)式，svd求解即可。</p>
 <ul>
 <li>几何方法：</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/cameraProject1.jpg" srcset="/img/loading.gif" lazyload alt="Fig1.实际立体图（相机像素坐标系下）"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/cameraProject3.jpg" srcset="/img/loading.gif" lazyload alt="Fig2.实际立体成像图（相机像素坐标)"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/birdView3.jpg" srcset="/img/loading.gif" lazyload alt="Fig3.实际俯视图（相机像素坐标系下）"></p>
-<p><strong>数学背景</strong>：已知空间中三角形 $\bigtriangleup \textrm{PMN}$ 的三个顶点坐标分别为 $P\left(x_0 ,y_0 ,z_0 \right),M\left(x_1 ,y_1 ,z_1 \right),N\left(x_2 ,y_2 ,z_2 \right)$ ，该三角形所在平面为 $\psi$ ，位于该平面内过一顶点P的方向向量为 $l&#x3D;\left(l_1 ,l_2 ,l_3 \right)$ ，该向量不与此三角形任何边平行&#x2F;重合，则过点M且平行于方向向量 $l$ 的直线 $\textrm{MQ}$ 必与 $\textrm{PN}$ 所在直线相交，交点为 $Q\left(x,y,z\right)$ ，其示意图和解析解如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/mathD.jpg" srcset="/img/loading.gif" lazyload alt="Fig4.求解Q点示意图"></p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/cameraProject1.jpg" srcset="/img/loading.gif" lazyload
+alt="Fig1.实际立体图（相机像素坐标系下）" />
+<figcaption
+aria-hidden="true">Fig1.实际立体图（相机像素坐标系下）</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/cameraProject3.jpg" srcset="/img/loading.gif" lazyload
+alt="Fig2.实际立体成像图（相机像素坐标)" />
+<figcaption
+aria-hidden="true">Fig2.实际立体成像图（相机像素坐标)</figcaption>
+</figure>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/birdView3.jpg" srcset="/img/loading.gif" lazyload
+alt="Fig3.实际俯视图（相机像素坐标系下）" />
+<figcaption
+aria-hidden="true">Fig3.实际俯视图（相机像素坐标系下）</figcaption>
+</figure>
+<p><strong>数学背景</strong>：已知空间中三角形 <span
+class="math inline">\(\bigtriangleup \textrm{PMN}\)</span>
+的三个顶点坐标分别为 <span class="math inline">\(P\left(x_0 ,y_0 ,z_0
+\right),M\left(x_1 ,y_1 ,z_1 \right),N\left(x_2 ,y_2 ,z_2
+\right)\)</span> ，该三角形所在平面为 <span
+class="math inline">\(\psi\)</span> ，位于该平面内过一顶点P的方向向量为
+<span class="math inline">\(l=\left(l_1 ,l_2 ,l_3 \right)\)</span>
+，该向量不与此三角形任何边平行/重合，则过点M且平行于方向向量 <span
+class="math inline">\(l\)</span> 的直线 <span
+class="math inline">\(\textrm{MQ}\)</span> 必与 <span
+class="math inline">\(\textrm{PN}\)</span> 所在直线相交，交点为 <span
+class="math inline">\(Q\left(x,y,z\right)\)</span>
+，其示意图和解析解如下：</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/mathD.jpg" srcset="/img/loading.gif" lazyload
+alt="Fig4.求解Q点示意图" />
+<figcaption aria-hidden="true">Fig4.求解Q点示意图</figcaption>
+</figure>
 <p>由已知平行性条件，可得下面共面的两条空间直线方程组：</p>
-<p> $$ \left\lbrace \begin{array}{ll} \frac{x-x_1 }{l_1 }&#x3D;\frac{y-y_1 }{l_2 }&#x3D;\frac{z-z_1 }{l_3 } &amp; \ \frac{x-x_2 }{x_2 -x_0 }&#x3D;\frac{x-x_2 }{y_2 -y_0 }&#x3D;\frac{x-x_2 }{z_2 -z_0 } &amp;  \end{array}\right. $$</p>
-<p> $Q &#x3D; \displaystyle \begin{array}{l} \left(\begin{array}{ccc} \sigma_1  &amp; \frac{l_2 ,x_1 ,y_0 +l_2 ,x_0 ,y_2 -l_2 ,x_2 ,y_0 -l_2 ,x_1 ,y_2 -l_1 ,y_0 ,y_1 +l_1 ,y_1 ,y_2 }{l_2 ,x_0 -l_2 ,x_2 -l_1 ,y_0 +l_1 ,y_2 } &amp; z_1 -\frac{l_3 ,{\left(x_1 -\sigma_1 \right)}}{l_1 } \end{array}\right)\\mathrm{}\\textrm{where}\\mathrm{}\;;\sigma_1 &#x3D;\frac{l_2 ,x_0 ,x_1 -l_2 ,x_1 ,x_2 -l_1 ,x_0 ,y_1 +l_1 ,x_0 ,y_2 -l_1 ,x_2 ,y_0 +l_1 ,x_2 ,y_1 }{l_2 ,x_0 -l_2 ,x_2 -l_1 ,y_0 +l_1 ,y_2 }\end{array}$</p>
+<p><span class="math display">\[ \left\lbrace \begin{array}{ll}
+\frac{x-x_1 }{l_1 }=\frac{y-y_1 }{l_2 }=\frac{z-z_1 }{l_3 } &amp; \\
+\frac{x-x_2 }{x_2 -x_0 }=\frac{x-x_2 }{y_2 -y_0 }=\frac{x-x_2 }{z_2 -z_0
+} &amp;  \end{array}\right. \]</span></p>
+<p><span class="math inline">\(Q = \displaystyle \begin{array}{l}
+\left(\begin{array}{ccc} \sigma_1  &amp; \frac{l_2 \,x_1 \,y_0 +l_2
+\,x_0 \,y_2 -l_2 \,x_2 \,y_0 -l_2 \,x_1 \,y_2 -l_1 \,y_0 \,y_1 +l_1
+\,y_1 \,y_2 }{l_2 \,x_0 -l_2 \,x_2 -l_1 \,y_0 +l_1 \,y_2 } &amp; z_1
+-\frac{l_3 \,{\left(x_1 -\sigma_1 \right)}}{l_1 }
+\end{array}\right)\\\mathrm{}\\\textrm{where}\\\mathrm{}\\\;\;\sigma_1
+=\frac{l_2 \,x_0 \,x_1 -l_2 \,x_1 \,x_2 -l_1 \,x_0 \,y_1 +l_1 \,x_0
+\,y_2 -l_1 \,x_2 \,y_0 +l_1 \,x_2 \,y_1 }{l_2 \,x_0 -l_2 \,x_2 -l_1
+\,y_0 +l_1 \,y_2 }\end{array}\)</span></p>
 <p>实现函数为calQcoord.m。</p>
-<p>主要利用相似三角形计算，由Fig2中成像过程，可知 $\bigtriangleup \textrm{PMQ}\sim \bigtriangleup {\textrm{PM}}_w N_w$ ，点 $M_w$ 、 $N_w$ 分别为图像中 $M$ 、 $N$ 点对应世界坐标系中的点，因在世界坐标系中 $\left|\textrm{MN}\right|$ 模已知，故可求解 $M$ 点的深度，从而推出外参 $T$ ，详细见demoOneImgCalibrate.m实现。</p>
-<h3 id="3-5-基于光束平差法的外参标定方法"><a href="#3-5-基于光束平差法的外参标定方法" class="headerlink" title="3.5 基于光束平差法的外参标定方法"></a>3.5 基于光束平差法的外参标定方法</h3><p>为了求解相机的位姿(R,t)和空间三维点的3D坐标，常采用优化的方式，优化方法中常用的是光束平差法（BA，又叫捆绑调整，束调整等）。BA方法的核心是最小化重投影误差，即有一个图像中的2D点m，算得一个三维点初始的3D坐标P时，将三维点重新投影到图像平面得到m’，最小化原始图像点m与重投影回去的m’之间（所有图像所有对应的图像点）的误差。可以看出，最小化投影误差，是一个非线性最小二乘问题。非线性最小二乘问题求解，常采用的方法是线性化，即使用泰勒展开式展开，忽略高阶项，变成线性最小二乘问题。</p>
-<h3 id="3-6-摄像机和激光雷达的联合标定"><a href="#3-6-摄像机和激光雷达的联合标定" class="headerlink" title="3.6 摄像机和激光雷达的联合标定"></a>3.6 摄像机和激光雷达的联合标定</h3><h3 id="3-7-其他标定方法"><a href="#3-7-其他标定方法" class="headerlink" title="3.7 其他标定方法"></a>3.7 其他标定方法</h3><h2 id="4-特征提取与匹配"><a href="#4-特征提取与匹配" class="headerlink" title="4.特征提取与匹配"></a>4.特征提取与匹配</h2><h3 id="4-1-图像梯度信息"><a href="#4-1-图像梯度信息" class="headerlink" title="4.1 图像梯度信息"></a>4.1 图像梯度信息</h3><h3 id="4-2-特征点提取"><a href="#4-2-特征点提取" class="headerlink" title="4.2 特征点提取"></a>4.2 特征点提取</h3><h3 id="4-3-特征匹配"><a href="#4-3-特征匹配" class="headerlink" title="4.3 特征匹配"></a>4.3 特征匹配</h3><h2 id="5-由运动恢复结构SFM"><a href="#5-由运动恢复结构SFM" class="headerlink" title="5.由运动恢复结构SFM"></a>5.由运动恢复结构SFM</h2><h3 id="5-1-对极几何"><a href="#5-1-对极几何" class="headerlink" title="5.1 对极几何"></a>5.1 对极几何</h3><h3 id="5-2-二视图重建"><a href="#5-2-二视图重建" class="headerlink" title="5.2 二视图重建"></a>5.2 二视图重建</h3><h3 id="5-3-光束法平差"><a href="#5-3-光束法平差" class="headerlink" title="5.3 光束法平差"></a>5.3 光束法平差</h3><h2 id="6-双目立体视觉"><a href="#6-双目立体视觉" class="headerlink" title="6.双目立体视觉"></a>6.双目立体视觉</h2><h3 id="6-1-双目视觉系统介绍"><a href="#6-1-双目视觉系统介绍" class="headerlink" title="6.1 双目视觉系统介绍"></a>6.1 双目视觉系统介绍</h3><h3 id="6-2-密集匹配"><a href="#6-2-密集匹配" class="headerlink" title="6.2 密集匹配"></a>6.2 密集匹配</h3><h3 id="6-3-结构光三维成像"><a href="#6-3-结构光三维成像" class="headerlink" title="6.3 结构光三维成像"></a>6.3 结构光三维成像</h3><h2 id="7-三维点云滤波与表面建模"><a href="#7-三维点云滤波与表面建模" class="headerlink" title="7.三维点云滤波与表面建模"></a>7.三维点云滤波与表面建模</h2><h3 id="7-1-三维点云的基本特征"><a href="#7-1-三维点云的基本特征" class="headerlink" title="7.1 三维点云的基本特征"></a>7.1 三维点云的基本特征</h3><h3 id="7-2-点云数据空间结构增强"><a href="#7-2-点云数据空间结构增强" class="headerlink" title="7.2 点云数据空间结构增强"></a>7.2 点云数据空间结构增强</h3><h3 id="7-3-表面建模概念和方法"><a href="#7-3-表面建模概念和方法" class="headerlink" title="7.3 表面建模概念和方法"></a>7.3 表面建模概念和方法</h3>
+<p>主要利用相似三角形计算，由Fig2中成像过程，可知 <span
+class="math inline">\(\bigtriangleup \textrm{PMQ}\sim \bigtriangleup
+{\textrm{PM}}_w N_w\)</span> ，点 <span
+class="math inline">\(M_w\)</span> 、 <span
+class="math inline">\(N_w\)</span> 分别为图像中 <span
+class="math inline">\(M\)</span> 、 <span
+class="math inline">\(N\)</span>
+点对应世界坐标系中的点，因在世界坐标系中 <span
+class="math inline">\(\left\|\textrm{MN}\right\|\)</span>
+模已知，故可求解 <span class="math inline">\(M\)</span>
+点的深度，从而推出外参 <span class="math inline">\(T\)</span>
+，详细见demoOneImgCalibrate.m实现。</p>
+<p>参考：</p>
+<ol type="1">
+<li><a
+target="_blank" rel="noopener" href="https://github.com/cuixing158/singleImageCalibration/blob/main/calIntrinsicGeometricAnalysis.md#利用直角四面体性质求解（推荐）">基于几何方法的单张图像标定之相机内参数学分析</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/cuixing158/singleImageCalibration/blob/main/calExtrinsicAnalysis.md#计算相机内参k">基于代数和几何方法的单张图像线性标定分析和实现</a></li>
+</ol>
+<h3 id="基于光束平差法的外参标定方法">3.5
+基于光束平差法的外参标定方法</h3>
+<p>为了求解相机的位姿(R,t)和空间三维点的3D坐标，常采用优化的方式，优化方法中常用的是光束平差法（BA，又叫捆绑调整，束调整等）。BA方法的核心是最小化重投影误差，即有一个图像中的2D点m，算得一个三维点初始的3D坐标P时，将三维点重新投影到图像平面得到m'，最小化原始图像点m与重投影回去的m'之间（所有图像所有对应的图像点）的误差。可以看出，最小化投影误差，是一个非线性最小二乘问题。非线性最小二乘问题求解，常采用的方法是线性化，即使用泰勒展开式展开，忽略高阶项，变成线性最小二乘问题。</p>
+<h3 id="摄像机和激光雷达的联合标定">3.6 摄像机和激光雷达的联合标定</h3>
+<h3 id="其他标定方法">3.7 其他标定方法</h3>
+<h2 id="特征提取与匹配-1">4.特征提取与匹配</h2>
+<h3 id="图像梯度信息">4.1 图像梯度信息</h3>
+<h3 id="特征点提取">4.2 特征点提取</h3>
+<h3 id="特征匹配">4.3 特征匹配</h3>
+<h2 id="由运动恢复结构sfm">5.由运动恢复结构SFM</h2>
+<h3 id="对极几何">5.1 对极几何</h3>
+<h3 id="二视图重建">5.2 二视图重建</h3>
+<h3 id="光束法平差">5.3 光束法平差</h3>
+<h2 id="双目立体视觉">6.双目立体视觉</h2>
+<h3 id="双目视觉系统介绍">6.1 双目视觉系统介绍</h3>
+<h3 id="密集匹配">6.2 密集匹配</h3>
+<h3 id="结构光三维成像">6.3 结构光三维成像</h3>
+<h2 id="三维点云滤波与表面建模">7.三维点云滤波与表面建模</h2>
+<h3 id="三维点云的基本特征">7.1 三维点云的基本特征</h3>
+<h3 id="点云数据空间结构增强">7.2 点云数据空间结构增强</h3>
+<h3 id="表面建模概念和方法">7.3 表面建模概念和方法</h3>
+
                 
               </div>
             
@@ -496,6 +722,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -689,6 +921,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
