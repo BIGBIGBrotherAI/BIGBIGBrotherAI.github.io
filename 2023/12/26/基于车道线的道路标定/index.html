@@ -23,13 +23,15 @@
 <meta property="og:site_name" content="BigShuai&#39;sBlog">
 <meta property="og:description" content="基于车道线的Cam2vehicle道路标定 1.pitch角的标定：基于假设，车道线线平行，车体和路面平行（车子没有抖动），车道线像素投影到地面为平行的3D点。  怎么判断车子当前是平稳的状态？  优化标量：pitch 目标函数：车道线地面投影3D点平行。（车道线地面投影的夹角。优化目标夹角为0） 优化过程：修改pitch-&gt;R矩阵-&gt;引入鱼眼原图-&gt;3D-&gt;">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/DELL/Pictures/1404363-20230201110616996-251674494.jpg">
 <meta property="article:published_time" content="2023-12-26T11:19:26.000Z">
-<meta property="article:modified_time" content="2024-01-04T02:44:00.740Z">
+<meta property="article:modified_time" content="2024-01-10T01:36:25.532Z">
 <meta property="article:author" content="Big Shuai">
 <meta property="article:tag" content="在线标定">
 <meta property="article:tag" content="环视相机">
 <meta property="article:tag" content="车道线检测">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:/Users/DELL/Pictures/1404363-20230201110616996-251674494.jpg">
   
   
   
@@ -224,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          683 字
+          1.2k 字
         
       </span>
     
@@ -235,7 +237,7 @@
         
         
         
-          6 分钟
+          11 分钟
         
       </span>
     
@@ -317,6 +319,34 @@ src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/image-202401041031
 alt="hsl空间筛选黄白车道线后进行二值化处理" />
 <figcaption
 aria-hidden="true">hsl空间筛选黄白车道线后进行二值化处理</figcaption>
+</figure>
+<p>选择HSV色域范围的时候可以参考下面表格：</p>
+<figure>
+<img
+src="C:/Users/DELL/Pictures/1404363-20220104143029277-2130379274.png" srcset="/img/loading.gif" lazyload
+alt="HSV色域颜色对照表" />
+<figcaption aria-hidden="true">HSV色域颜色对照表</figcaption>
+</figure>
+<p>opencv中的 H分量是 0~180， S分量是0~255，
+V分量是0～255，但是HSV颜色空间却规定的是，H范围0～360，S范围0～1，V范围0～1，所以你需要自己转换一下，H*2，V/255，S/255。</p>
+<p><strong>H—Hue</strong>即色相，就是我们平时所说的红、绿，如果你分的更细的话可能还会有洋红、草绿等等；在HSV模型中，用度数来描述色相，其中红色对应0度，绿色对应120度，蓝色对应240度。</p>
+<p><img src="C:/Users/DELL/Pictures/1404363-20230201110616996-251674494.jpg" srcset="/img/loading.gif" lazyload alt="1404363-20230201110616996-251674494" style="zoom:50%;" /></p>
+<p>S——Saturation即饱和度，色彩的深浅度(0-100%)
+，对于一种颜色比如红色，我们可以用浅红——大红——深红——红得发紫等等语言来描述它（请原谅一个纯理科生的匮乏的颜色系统），对应在画水彩的时候即一种颜料加上不同分量的水形成不同的饱和度。
+V——Value即色调，纯度，色彩的亮度(0-100%)
+，这个在调整屏幕亮度的时候比较常见。</p>
+<p>注：在模型2中：</p>
+<blockquote>
+<p>H是色彩点在对应圆形切面上与红色半径(对于H=0度)所形成的圆心角。
+V是色彩点所在圆形切面到圆锥顶点的距离。在顶面上V=1 顶点V=0。
+S是色彩点到所在圆形切面圆心的距离与该圆半径的比例值，在圆锥表面上S=1，在圆心处S=0。</p>
+</blockquote>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/1404363-20230201110638475-2037627953.jpg" srcset="/img/loading.gif" lazyload
+alt="1404363-20230201110638475-2037627953" />
+<figcaption
+aria-hidden="true">1404363-20230201110638475-2037627953</figcaption>
 </figure>
 
                 
