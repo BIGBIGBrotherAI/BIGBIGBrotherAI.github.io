@@ -16,23 +16,21 @@
   <meta name="author" content="Big Shuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Python调试器工具--pdb pdb 是 python 自带的一个包，为 python 程序提供了一种交互的源代码调试功能，主要特性包括设置断点、单步调试、进入函数调试、查看当前代码、查看栈片段、动态改变变量的值等。pdb有2种用法：  非侵入式方法（不用额外修改源代码，在命令行下直接运行就能调试）  1python3 -m pdb filename.py  侵入式方法（需要在">
+    <meta name="description" content="在射影几何学中，RT刚体变换和单应性矩阵变换都是可逆的，但它们的可逆性含义略有不同。  RT刚体变换：  - RT刚体变换通常由一个旋转矩阵 R 和一个平移向量 T* 组成。 - 旋转矩阵 R是一个正交矩阵，意味着它的逆矩阵就是它的转置矩阵，即R-1&#x3D;RT。 - 平移向量T 的逆变换是它的相反数，即-T。 - 因此，RT刚体变换的逆变换是RT和-T的组合，这是可逆的。  单应">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python调试器工具--pdb">
-<meta property="og:url" content="http://example.com/2024/01/13/Python%E8%B0%83%E8%AF%95%E5%99%A8%E5%B7%A5%E5%85%B7-pdb/index.html">
+<meta property="og:title" content="标定结果中RT与欧拉角互逆性的问题">
+<meta property="og:url" content="http://example.com/2024/04/08/%E6%A0%87%E5%AE%9A%E7%BB%93%E6%9E%9C%E4%B8%ADRT%E4%B8%8E%E6%AC%A7%E6%8B%89%E8%A7%92%E4%BA%92%E9%80%86%E6%80%A7%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="BigShuai&#39;sBlog">
-<meta property="og:description" content="Python调试器工具--pdb pdb 是 python 自带的一个包，为 python 程序提供了一种交互的源代码调试功能，主要特性包括设置断点、单步调试、进入函数调试、查看当前代码、查看栈片段、动态改变变量的值等。pdb有2种用法：  非侵入式方法（不用额外修改源代码，在命令行下直接运行就能调试）  1python3 -m pdb filename.py  侵入式方法（需要在">
+<meta property="og:description" content="在射影几何学中，RT刚体变换和单应性矩阵变换都是可逆的，但它们的可逆性含义略有不同。  RT刚体变换：  - RT刚体变换通常由一个旋转矩阵 R 和一个平移向量 T* 组成。 - 旋转矩阵 R是一个正交矩阵，意味着它的逆矩阵就是它的转置矩阵，即R-1&#x3D;RT。 - 平移向量T 的逆变换是它的相反数，即-T。 - 因此，RT刚体变换的逆变换是RT和-T的组合，这是可逆的。  单应">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-13T12:04:49.000Z">
-<meta property="article:modified_time" content="2024-01-13T12:18:46.131Z">
+<meta property="article:published_time" content="2024-04-08T01:20:09.000Z">
+<meta property="article:modified_time" content="2024-04-08T01:27:33.725Z">
 <meta property="article:author" content="Big Shuai">
-<meta property="article:tag" content="pdb">
-<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Python调试器工具--pdb - BigShuai&#39;sBlog</title>
+  <title>标定结果中RT与欧拉角互逆性的问题 - BigShuai&#39;sBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Python调试器工具--pdb"></span>
+            <span id="subtitle" data-typed-text="标定结果中RT与欧拉角互逆性的问题"></span>
           
         </div>
 
@@ -211,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-13 20:04" pubdate>
-          2024年1月13日 晚上
+        <time datetime="2024-04-08 09:20" pubdate>
+          2024年4月8日 上午
         </time>
       </span>
     
@@ -223,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          635 字
         
       </span>
     
@@ -234,7 +232,7 @@
         
         
         
-          14 分钟
+          6 分钟
         
       </span>
     
@@ -271,180 +269,32 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Python调试器工具--pdb</h1>
+            <h1 id="seo-header">标定结果中RT与欧拉角互逆性的问题</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="python调试器工具--pdb">Python调试器工具--pdb</h1>
-<p><strong>pdb</strong> 是 python 自带的一个包，为 python
-程序提供了一种交互的源代码调试功能，主要特性包括设置断点、单步调试、进入函数调试、查看当前代码、查看栈片段、动态改变变量的值等。<strong>pdb</strong>有2种用法：</p>
-<ul>
-<li><strong>非侵入式方法</strong>（不用额外修改源代码，在命令行下直接运行就能调试）</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python3 -m pdb filename.py<br></code></pre></td></tr></table></figure>
-<ul>
-<li><strong>侵入式方法</strong>（需要在被调试的代码中添加一行代码然后再正常运行代码）</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python3">import pdb;pdb.set_trace()<br></code></pre></td></tr></table></figure>
-<p>当你在命令行看到下面这个提示符时，说明已经正确打开了pdb</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">(Pdb) <br></code></pre></td></tr></table></figure>
-<p>然后就可以开始输入pdb命令了，下面是pdb的常用命令</p>
-<h2 id="查看源代码">1.查看源代码</h2>
-<p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">l<br></code></pre></td></tr></table></figure>
-<p>说明：</p>
-<blockquote>
-<p>查看当前位置前后11行源代码（多次会翻页）
-当前位置在代码中会用--&gt;这个符号标出来</p>
-</blockquote>
-<p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ll<br></code></pre></td></tr></table></figure>
-<p>说明：</p>
-<blockquote>
-<p>查看当前函数或框架的所有源代码</p>
-</blockquote>
-<h2 id="添加断点">2.添加断点</h2>
-<p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">b<br>b lineno<br>b filename:lineno<br><span class="hljs-comment"># b a.py:57  在a文件第57行加断点（57为报错位置）</span><br>b functionname<br></code></pre></td></tr></table></figure>
-<p>参数：</p>
-<blockquote>
-<p>filename文件名，断点添加到哪个文件，<a
-href="https://link.zhihu.com/?target=http%3A//xn--test-f96g.py/">如test.py</a>
-lineno断点添加到哪一行
-function：函数名，在该函数执行的第一行设置断点</p>
-</blockquote>
-<p>说明：</p>
-<blockquote>
-<p>1.不带参数表示查看断点设置 2.带参则在指定位置设置一个断点</p>
-</blockquote>
-<p><strong>侵入式添加断点举例</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pdb<br>a = <span class="hljs-number">3</span><br>b = <span class="hljs-number">4</span><br>pdb.set_trace() <span class="hljs-comment"># insert breakpoint</span><br>a += <span class="hljs-number">1</span><br>b = b + a<br>pdb.set_trace() <span class="hljs-comment"># insert breakpoint</span><br></code></pre></td></tr></table></figure>
-<p>py3.7后，支持直接添加breakpoint(),不需要进行import</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">a = <span class="hljs-number">3</span><br>b = <span class="hljs-number">4</span><br><span class="hljs-built_in">breakpoint</span>() <span class="hljs-comment"># insert breakpoint</span><br>a += <span class="hljs-number">1</span><br>b = b + a<br><span class="hljs-built_in">breakpoint</span>() <span class="hljs-comment"># insert breakpoint</span><br></code></pre></td></tr></table></figure>
-<h2 id="添加临时断点">3.添加临时断点</h2>
-<p>命令：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">tbreak<br>tbreak lineno<br>tbreak filename:lineno<br>tbreak functionname<br></code></pre></td></tr></table></figure>
-<p>参数：</p>
-<blockquote>
-<p>同b</p>
-</blockquote>
-<p>说明：</p>
-<blockquote>
-<p>执行一次后时自动删除（这就是它被称为临时断点的原因）</p>
-</blockquote>
-<h2 id="清除断点">4.清除断点</h2>
-<p>命令：</p>
-<figure class="highlight pycon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pycon">cl<br>cl filename:lineno<br>cl bpnumber [bpnumber ...]<br></code></pre></td></tr></table></figure>
-<p>参数：</p>
-<blockquote>
-<p>bpnumber 断点序号（多个以空格分隔）</p>
-</blockquote>
-<p>说明：</p>
-<blockquote>
-<p>1.不带参数用于清除所有断点，会提示确认（包括临时断点）
-2.带参数则清除指定文件行或当前文件指定序号的断点</p>
-</blockquote>
-<h2 id="打印变量值">5.打印变量值</h2>
-<p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">p expression  <span class="hljs-comment"># expression Python表达式</span><br>p tmp         <span class="hljs-comment"># 打印变量值</span><br></code></pre></td></tr></table></figure>
-<h2 id="逐行调试命令">6.逐行调试命令</h2>
-<p>包括 s ，n ， r 这3个相似的命令，区别在如何对待函数上</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">s <span class="hljs-comment">#执行下一行（能够进入函数体）</span><br>n <span class="hljs-comment">#执行下一行（不会进入函数体）</span><br>r <span class="hljs-comment">#执行下一行（在函数中时会直接执行到函数返回处）</span><br></code></pre></td></tr></table></figure>
-<h2 id="非逐行调试命令">7.非逐行调试命令</h2>
-<p>命令1：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">c <br></code></pre></td></tr></table></figure>
-<p>说明：</p>
-<blockquote>
-<p>持续执行下去，直到遇到一个断点</p>
-</blockquote>
-<p>命令2</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">unt lineno<br></code></pre></td></tr></table></figure>
-<p>说明：</p>
-<blockquote>
-<p>持续执行直到运行到指定行（或遇到断点）</p>
-</blockquote>
-<p>命令3</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">j lineno<br></code></pre></td></tr></table></figure>
-<p>说明：</p>
-<blockquote>
-<p>直接跳转到指定行（注意，被跳过的代码不执行）</p>
-</blockquote>
-<h2 id="查看函数参数">8.查看函数参数</h2>
-<p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">a<br></code></pre></td></tr></table></figure>
-<p>说明：</p>
-<blockquote>
-<p>在函数中时打印函数的参数和参数的值</p>
-</blockquote>
-<h2 id="打印变量类型">9.打印变量类型</h2>
-<p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">whatis expression<br></code></pre></td></tr></table></figure>
-<p>说明：</p>
-<blockquote>
-<p>打印表达式的类型，常用来打印变量值</p>
-</blockquote>
-<h2 id="启动交互式解释器">10.启动交互式解释器</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">interact<br></code></pre></td></tr></table></figure>
-<p>说明：</p>
-<blockquote>
-<p>启动一个python的交互式解释器，使用当前代码的全局命名空间（使用ctrl+d返回pdb）</p>
-</blockquote>
-<h2 id="打印堆栈信息">11.打印堆栈信息</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">w<br></code></pre></td></tr></table></figure>
-<p>说明：</p>
-<blockquote>
-<p>打印堆栈信息，最新的帧在最底部。箭头表示当前帧。</p>
-</blockquote>
-<h2 id="退出pdb">12.退出pdb</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">q<br></code></pre></td></tr></table></figure>
-<h2 id="速查表">13.速查表</h2>
-<table>
-<thead>
-<tr class="header">
-<th>指令 (简写/全称)</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>b / break</td>
-<td>设置断点</td>
-</tr>
-<tr class="even">
-<td>c / continual</td>
-<td>继续执行程序</td>
-</tr>
-<tr class="odd">
-<td>n / next</td>
-<td>执行下一行</td>
-</tr>
-<tr class="even">
-<td>l / list</td>
-<td>查看当前代码段</td>
-</tr>
-<tr class="odd">
-<td>s / step</td>
-<td>进入函数</td>
-</tr>
-<tr class="even">
-<td>r / return</td>
-<td>执行代码指导从当前函数返回</td>
-</tr>
-<tr class="odd">
-<td>q / exit</td>
-<td>中止并退出</td>
-</tr>
-<tr class="even">
-<td>pp</td>
-<td>打印变量值</td>
-</tr>
-<tr class="odd">
-<td>help</td>
-<td>帮助</td>
-</tr>
-</tbody>
-</table>
+                <p>在射影几何学中，RT刚体变换和单应性矩阵变换都是可逆的，但它们的可逆性含义略有不同。</p>
+<ol type="1">
+<li><strong>RT刚体变换</strong>：</li>
+</ol>
+<p>- RT刚体变换通常由一个旋转矩阵 <strong><em>R</em></strong>
+和一个平移向量 <strong>T*</strong> 组成。 - 旋转矩阵
+<strong><em>R</em></strong>是一个正交矩阵，意味着它的逆矩阵就是它的转置矩阵，即<strong><em>R</em></strong><sup>-1</sup>=<strong><em>R</em></strong><sup>T</sup>。
+- 平移向量<strong><em>T</em></strong>
+的逆变换是它的相反数，即<strong><em>-T</em></strong>。 -
+因此，RT刚体变换的逆变换是<strong><em>R</em></strong><sup>T</sup><strong>和-T</strong>的组合，这是<strong>可逆</strong>的。</p>
+<ol start="2" type="1">
+<li><strong>单应性矩阵H变换</strong>：</li>
+</ol>
+<p>- 单应性矩阵是一个3x3的矩阵，用于描述两个平面之间的射影变换。 -
+单应性矩阵的逆矩阵存在当且仅当该单应性矩阵的行列式不为零。 -
+当行列式不为零时，单应性矩阵变换是可逆的，这意味着可以通过逆矩阵将变换逆向执行。
+总结来说，RT<strong><u>刚体变换总是可逆</u></strong>的，因为旋转和平移都有明确的逆操作。而<strong>单应性矩阵变换在<u>行列式不为零</u>的情况下是可逆</strong>的，这取决于具体的变换矩阵。</p>
+<p>假设如下场景，对于一台已经标定好的环视相机，在相机前的三维空间有一批3D点。我们可以通过标定结果中的RT或者H把这些3D点转换到鱼眼坐标系的2D点，然后再通过标定结果中的RT或者H把这些2D点投影到Bev中去。
+现在做假设：1.标定完全准确；2.三维空间有一批3D点的z值为0。
+那么Bev中的点相对于后轴中心的位置与三维空间中的点相对于后轴中心的位置<strong>应当</strong>一致，加入引入一些转换损失，也应当保持较小的误差。</p>
+<p>但是在实际的标定结果中，使用RT将三维空间有一批3D点投影到鱼眼，再使用H矩阵投影到bev后，发生了较大的误差。这说明：<strong>RT刚体变换</strong>和<strong>单应性矩阵H变换</strong>并不能<strong>完全</strong>互相转换。</p>
 
                 
               </div>
@@ -453,36 +303,6 @@ function：函数名，在该函数执行的第一行设置断点</p>
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%B0%83%E8%AF%95/" class="category-chain-item">调试</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/pdb/" class="print-no-link">#pdb</a>
-      
-        <a href="/tags/python/" class="print-no-link">#python</a>
-      
-    </div>
   
 </div>
 
@@ -492,8 +312,8 @@ function：函数名，在该函数执行的第一行设置断点</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Python调试器工具--pdb</div>
-      <div>http://example.com/2024/01/13/Python调试器工具-pdb/</div>
+      <div>标定结果中RT与欧拉角互逆性的问题</div>
+      <div>http://example.com/2024/04/08/标定结果中RT与欧拉角互逆性的问题/</div>
     </div>
     <div class="license-meta">
       
@@ -505,7 +325,7 @@ function：函数名，在该函数执行的第一行设置断点</p>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年1月13日</div>
+          <div>2024年4月8日</div>
         </div>
       
       
@@ -537,18 +357,12 @@ function：函数名，在该函数执行的第一行设置断点</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/01/26/C-%E8%AF%AD%E6%B3%95%E7%B3%96/" title="C++语法糖">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">C++语法糖</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/01/07/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E6%B5%8B%E9%87%8F%E4%B8%8E%E5%BB%BA%E6%A8%A1/" title="机器视觉测量与建模">
-                        <span class="hidden-mobile">机器视觉测量与建模</span>
+                      <a href="/2024/04/08/%E6%A0%87%E5%AE%9A%E7%BB%93%E6%9E%9C%E4%B8%AD%E7%9A%84RT%E5%92%8CH%E4%BA%92%E9%80%86%E6%80%A7%E7%9A%84%E9%97%AE%E9%A2%98/" title="标定结果中的RT和H互逆性的问题">
+                        <span class="hidden-mobile">标定结果中的RT和H互逆性的问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
