@@ -8,7 +8,7 @@
     <link href="/2024/04/10/%E8%87%AA%E6%A0%87%E5%AE%9A%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1/"/>
     <url>/2024/04/10/%E8%87%AA%E6%A0%87%E5%AE%9A%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1/</url>
     
-    <content type="html"><![CDATA[<figure><imgsrc="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101125969.png"alt="道路标定流程图" /><figcaption aria-hidden="true">道路标定流程图</figcaption></figure>]]></content>
+    <content type="html"><![CDATA[<ul><li>流程一</li></ul><figure><imgsrc="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101125969.png"alt="道路标定流程图" /><figcaption aria-hidden="true">道路标定流程图</figcaption></figure>]]></content>
     
     
     
@@ -338,9 +338,9 @@
     
     <tags>
       
-      <tag>ffmpeg</tag>
-      
       <tag>git</tag>
+      
+      <tag>ffmpeg</tag>
       
     </tags>
     
