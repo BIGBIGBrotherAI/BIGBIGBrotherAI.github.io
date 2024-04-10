@@ -4,11 +4,37 @@
   
   
   <entry>
+    <title>鱼眼边缘投影异常分析</title>
+    <link href="/2024/04/10/%E9%B1%BC%E7%9C%BC%E8%BE%B9%E7%BC%98%E6%8A%95%E5%BD%B1%E5%BC%82%E5%B8%B8%E5%88%86%E6%9E%90/"/>
+    <url>/2024/04/10/%E9%B1%BC%E7%9C%BC%E8%BE%B9%E7%BC%98%E6%8A%95%E5%BD%B1%E5%BC%82%E5%B8%B8%E5%88%86%E6%9E%90/</url>
+    
+    <content type="html"><![CDATA[<p>使用dc1e a2某内参验证鱼眼大视角边缘投影问题。</p><p>以相机为中心，<strong>构造扇形测距带（</strong>如下图左），经过射影变换（单应性矩阵变换）重新拼接，大FOV视野边缘的测距点发生测距点异常的情况（如下图右）。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101252396.jpg"alt="测距点分布图" /><figcaption aria-hidden="true">测距点分布图</figcaption></figure><p><strong>原因分析</strong>：使用OpenCV中的undistort函数进行鱼眼镜头畸变矫正时，在鱼眼镜头的边缘区域会因为归一化出来的数值非常大甚至数值溢出和图像错位，这确实反映了在这些区域畸变矫正的效果可能不可靠。</p><p><strong>建议：</strong>通过手动测试在 FOV ＜154° （≈单面fov77°），错位问题消除。建议这个范围以上的目标 借助 其他相机视野识别。</p><p>如下图颜色区域分别为相机[13°,167°]的地面像素有效ROI区域（左图bev,右图原图），长度区间为（0~20m），区域内不会发生错位问题。（备注：原图ROI的确认需要借助标定文件。这里对于同一系列的量产车，map的roi可能比较接近。）</p><p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101252957.png" alt="bev_生成鱼眼角点再投影到bev的测距点" style="zoom: 25%;" /></p><p><img src="C:/Users/DELL/Downloads/原图测距点.png" alt="原图测距点" style="zoom:25%;" /></p><p>roi 区域</p><p><strong>front-&gt;left-&gt;rear-&gt;right</strong></p><p><img src="C:/Users/DELL/Downloads/原图_front_测距点_roi.png" alt="原图_front_测距点_roi" style="zoom:25%;" /></p><p><img src="C:/Users/DELL/Downloads/原图_left_测距点_roi.png" alt="原图_left_测距点_roi" style="zoom:25%;" /></p><p><img src="C:/Users/DELL/Downloads/原图_rear_测距点_roi.png" alt="原图_rear_测距点_roi" style="zoom:25%;" /></p><p><img src="C:/Users/DELL/Downloads/原图_right_测距点_roi.png" alt="原图_right_测距点_roi" style="zoom:25%;" /></p><p><a href="#">四个相机的roi.zip</a></p><p>现在代码)中生成的mask区域（=100)</p><p><img src="C:/Users/DELL/Downloads/1_0.png" alt="front" style="zoom:25%;" /></p><p><img src="C:/Users/DELL/Downloads/2_1.png" alt="left" style="zoom:25%;" /></p><p><img src="C:/Users/DELL/Downloads/3_2.png" alt="rear" style="zoom:25%;" /></p><p><img src="C:/Users/DELL/Downloads/4_3.png" alt="right" style="zoom:25%;" /></p><p>一些补偿材料：</p><p>使用RT重投影误差图与3D测距图的差值来过滤误差区域，效果很差。就是除了错位外，本身投影变换也造成了很多个像素的误差，距离越远误差越大，而且这个误差不是沿着相机距离均匀分布的。这就导致不能单纯的用<strong>固定距离误差阈值去筛选</strong>fov边缘的错位点。</p><figure><imgsrc="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101253231.png"alt="image2024-3-19_14-59-36" /><figcaption aria-hidden="true">image2024-3-19_14-59-36</figcaption></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>相机姿态估计算法</title>
+    <link href="/2024/04/10/%E7%9B%B8%E6%9C%BA%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E7%AE%97%E6%B3%95/"/>
+    <url>/2024/04/10/%E7%9B%B8%E6%9C%BA%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E7%AE%97%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<p>目标：车辆环视相机上电后，能够在满足一部分场地环境和驾驶条件的前提下，在不影响车辆其他功能正常使用的要求下，开发姿态自检算法，当相机姿态发生异常时，弹窗报警，提示驾驶员。</p><p>任务：重新计算求解四个相机的安装位姿，主要计算pitch yawroll，安装位置xyz暂不考虑</p><h3 id="稀疏点云三维重建">稀疏点云三维重建：</h3><p>特征检测</p><p>特征匹配</p><p>求解前两帧相机之间的本质矩阵E，以第一帧相机为世界坐标系</p><p>R，t求解</p><p>三角化重建三维点</p><p>求解第三帧及后续帧到到世界坐标系的变换矩阵(R和T)第n帧到第一帧的变换矩阵</p><p>BA约束</p><h3 id="求解车地平面到点云平面的h">求解车地平面到点云平面的H：</h3><p>重建3D点映射到图像平面上，</p><p>选点策略，选取车道线边缘点，或者斑马线边缘点，需要两条直线，每条直线至少5个点，且要求有序，且满足重投影误差要求，过滤掉重投影误差大得点</p><p>所选点集坐标定义直线方向为y，z为0，右为x，即自车坐标系坐标，y更新为相邻点3d欧式距离，累加，第二条直线x为该点到第一条直线距离</p><p>去尺度信息，此时求得H应该有尺度缩放，归一化</p><p>罗德里格斯变换 求pitch，roll</p><h3 id="求解yaw">求解yaw</h3><p>基于car heading，求解yaw</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>自标定流程设计</title>
     <link href="/2024/04/10/%E8%87%AA%E6%A0%87%E5%AE%9A%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1/"/>
     <url>/2024/04/10/%E8%87%AA%E6%A0%87%E5%AE%9A%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1/</url>
     
-    <content type="html"><![CDATA[<ul><li>流程一</li></ul><figure><imgsrc="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101125969.png"alt="道路标定流程图" /><figcaption aria-hidden="true">道路标定流程图</figcaption></figure>]]></content>
+    <content type="html"><![CDATA[<ul><li>流程一</li></ul><figure><imgsrc="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101125969.png"alt="图1 道路标定流程图" /><figcaption aria-hidden="true">图1 道路标定流程图</figcaption></figure>]]></content>
     
     
     

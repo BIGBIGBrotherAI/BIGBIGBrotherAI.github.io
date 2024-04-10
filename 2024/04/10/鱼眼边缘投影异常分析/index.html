@@ -16,21 +16,32 @@
   <meta name="author" content="Big Shuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="流程一    图1 道路标定流程图">
+    <meta name="description" content="使用dc1e a2某内参验证鱼眼大视角边缘投影问题。 以相机为中心，构造扇形测距带（如下图左），经过射影变换（单应性矩阵变换）重新拼接，大FOV视野边缘的测距点发生测距点异常的情况（如下图右）。   测距点分布图  原因分析： 使用OpenCV中的undistort函数进行鱼眼镜头畸变矫正时，在鱼眼镜头的边缘区域会因为归一化出来的数值非常大甚至数值溢出和图像错位，这确实反映了在这些区">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自标定流程设计">
-<meta property="og:url" content="http://example.com/2024/04/10/%E8%87%AA%E6%A0%87%E5%AE%9A%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:title" content="鱼眼边缘投影异常分析">
+<meta property="og:url" content="http://example.com/2024/04/10/%E9%B1%BC%E7%9C%BC%E8%BE%B9%E7%BC%98%E6%8A%95%E5%BD%B1%E5%BC%82%E5%B8%B8%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="BigShuai&#39;sBlog">
-<meta property="og:description" content="流程一    图1 道路标定流程图">
+<meta property="og:description" content="使用dc1e a2某内参验证鱼眼大视角边缘投影问题。 以相机为中心，构造扇形测距带（如下图左），经过射影变换（单应性矩阵变换）重新拼接，大FOV视野边缘的测距点发生测距点异常的情况（如下图右）。   测距点分布图  原因分析： 使用OpenCV中的undistort函数进行鱼眼镜头畸变矫正时，在鱼眼镜头的边缘区域会因为归一化出来的数值非常大甚至数值溢出和图像错位，这确实反映了在这些区">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-10T01:21:01.000Z">
-<meta property="article:modified_time" content="2024-04-10T03:28:39.857Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101252957.png">
+<meta property="og:image" content="c:/Users/DELL/Downloads/%E5%8E%9F%E5%9B%BE%E6%B5%8B%E8%B7%9D%E7%82%B9.png">
+<meta property="og:image" content="c:/Users/DELL/Downloads/%E5%8E%9F%E5%9B%BE_front_%E6%B5%8B%E8%B7%9D%E7%82%B9_roi.png">
+<meta property="og:image" content="c:/Users/DELL/Downloads/%E5%8E%9F%E5%9B%BE_left_%E6%B5%8B%E8%B7%9D%E7%82%B9_roi.png">
+<meta property="og:image" content="c:/Users/DELL/Downloads/%E5%8E%9F%E5%9B%BE_rear_%E6%B5%8B%E8%B7%9D%E7%82%B9_roi.png">
+<meta property="og:image" content="c:/Users/DELL/Downloads/%E5%8E%9F%E5%9B%BE_right_%E6%B5%8B%E8%B7%9D%E7%82%B9_roi.png">
+<meta property="og:image" content="c:/Users/DELL/Downloads/1_0.png">
+<meta property="og:image" content="c:/Users/DELL/Downloads/2_1.png">
+<meta property="og:image" content="c:/Users/DELL/Downloads/3_2.png">
+<meta property="og:image" content="c:/Users/DELL/Downloads/4_3.png">
+<meta property="article:published_time" content="2024-04-10T04:50:45.000Z">
+<meta property="article:modified_time" content="2024-04-10T04:59:21.728Z">
 <meta property="article:author" content="Big Shuai">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101252957.png">
   
   
   
-  <title>自标定流程设计 - BigShuai&#39;sBlog</title>
+  <title>鱼眼边缘投影异常分析 - BigShuai&#39;sBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +209,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="自标定流程设计"></span>
+            <span id="subtitle" data-typed-text="鱼眼边缘投影异常分析"></span>
           
         </div>
 
@@ -209,8 +220,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-10 09:21" pubdate>
-          2024年4月10日 上午
+        <time datetime="2024-04-10 12:50" pubdate>
+          2024年4月10日 下午
         </time>
       </span>
     
@@ -221,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12 字
+          599 字
         
       </span>
     
@@ -232,7 +243,7 @@
         
         
         
-          1 分钟
+          5 分钟
         
       </span>
     
@@ -269,19 +280,45 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">自标定流程设计</h1>
+            <h1 id="seo-header">鱼眼边缘投影异常分析</h1>
             
             
               <div class="markdown-body">
                 
-                <ul>
-<li>流程一</li>
-</ul>
+                <p>使用dc1e a2某内参验证鱼眼大视角边缘投影问题。</p>
+<p>以相机为中心，<strong>构造扇形测距带（</strong>如下图左），经过射影变换（单应性矩阵变换）重新拼接，大FOV视野边缘的测距点发生测距点异常的情况（如下图右）。</p>
 <figure>
 <img
-src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101125969.png" srcset="/img/loading.gif" lazyload
-alt="图1 道路标定流程图" />
-<figcaption aria-hidden="true">图1 道路标定流程图</figcaption>
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101252396.jpg" srcset="/img/loading.gif" lazyload
+alt="测距点分布图" />
+<figcaption aria-hidden="true">测距点分布图</figcaption>
+</figure>
+<p><strong>原因分析</strong>：
+使用OpenCV中的undistort函数进行鱼眼镜头畸变矫正时，在鱼眼镜头的边缘区域会因为归一化出来的数值非常大甚至数值溢出和图像错位，这确实反映了在这些区域畸变矫正的效果可能不可靠。</p>
+<p><strong>建议：</strong>通过手动测试在 FOV ＜154° （≈单面fov
+77°），错位问题消除。建议这个范围以上的目标 借助 其他相机视野识别。</p>
+<p>如下图颜色区域分别为相机[13°,167°]的地面像素有效ROI区域（左图bev,右图原图），长度区间为（0~20m），区域内不会发生错位问题。（备注：原图ROI的确认需要借助标定文件。这里对于同一系列的量产车，map的roi可能比较接近。）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101252957.png" srcset="/img/loading.gif" lazyload alt="bev_生成鱼眼角点再投影到bev的测距点" style="zoom: 25%;" /></p>
+<p><img src="C:/Users/DELL/Downloads/原图测距点.png" srcset="/img/loading.gif" lazyload alt="原图测距点" style="zoom:25%;" /></p>
+<p>roi 区域</p>
+<p><strong>front-&gt;left-&gt;rear-&gt;right</strong></p>
+<p><img src="C:/Users/DELL/Downloads/原图_front_测距点_roi.png" srcset="/img/loading.gif" lazyload alt="原图_front_测距点_roi" style="zoom:25%;" /></p>
+<p><img src="C:/Users/DELL/Downloads/原图_left_测距点_roi.png" srcset="/img/loading.gif" lazyload alt="原图_left_测距点_roi" style="zoom:25%;" /></p>
+<p><img src="C:/Users/DELL/Downloads/原图_rear_测距点_roi.png" srcset="/img/loading.gif" lazyload alt="原图_rear_测距点_roi" style="zoom:25%;" /></p>
+<p><img src="C:/Users/DELL/Downloads/原图_right_测距点_roi.png" srcset="/img/loading.gif" lazyload alt="原图_right_测距点_roi" style="zoom:25%;" /></p>
+<p><a href="#">四个相机的roi.zip</a></p>
+<p>现在代码)中生成的mask区域（=100)</p>
+<p><img src="C:/Users/DELL/Downloads/1_0.png" srcset="/img/loading.gif" lazyload alt="front" style="zoom:25%;" /></p>
+<p><img src="C:/Users/DELL/Downloads/2_1.png" srcset="/img/loading.gif" lazyload alt="left" style="zoom:25%;" /></p>
+<p><img src="C:/Users/DELL/Downloads/3_2.png" srcset="/img/loading.gif" lazyload alt="rear" style="zoom:25%;" /></p>
+<p><img src="C:/Users/DELL/Downloads/4_3.png" srcset="/img/loading.gif" lazyload alt="right" style="zoom:25%;" /></p>
+<p>一些补偿材料：</p>
+<p>使用RT重投影误差图与3D测距图的差值来过滤误差区域，效果很差。就是除了错位外，本身投影变换也造成了很多个像素的误差，距离越远误差越大，而且这个误差不是沿着相机距离均匀分布的。这就导致不能单纯的用<strong>固定距离误差阈值去筛选</strong>fov边缘的错位点。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101253231.png" srcset="/img/loading.gif" lazyload
+alt="image2024-3-19_14-59-36" />
+<figcaption aria-hidden="true">image2024-3-19_14-59-36</figcaption>
 </figure>
 
                 
@@ -300,8 +337,8 @@ alt="图1 道路标定流程图" />
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>自标定流程设计</div>
-      <div>http://example.com/2024/04/10/自标定流程设计/</div>
+      <div>鱼眼边缘投影异常分析</div>
+      <div>http://example.com/2024/04/10/鱼眼边缘投影异常分析/</div>
     </div>
     <div class="license-meta">
       
@@ -345,18 +382,12 @@ alt="图1 道路标定流程图" />
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/10/%E7%9B%B8%E6%9C%BA%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E7%AE%97%E6%B3%95/" title="相机姿态估计算法">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">相机姿态估计算法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/08/%E9%81%93%E8%B7%AF%E6%A0%87%E5%AE%9A%E5%85%A5%E9%97%A8/" title="道路标定入门">
-                        <span class="hidden-mobile">道路标定入门</span>
+                      <a href="/2024/04/10/%E7%9B%B8%E6%9C%BA%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E7%AE%97%E6%B3%95/" title="相机姿态估计算法">
+                        <span class="hidden-mobile">相机姿态估计算法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
