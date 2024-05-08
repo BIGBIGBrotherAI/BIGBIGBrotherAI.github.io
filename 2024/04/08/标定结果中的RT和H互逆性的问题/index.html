@@ -16,19 +16,21 @@
   <meta name="author" content="Big Shuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="使用eigen求解 现在有一辆车,进行过eol标定。其标定结果如下表。目前的结论是：eigen转化R矩阵到欧拉角不准确。 对应的原rt文件如：cc_svs_params_out_008.xml extrinsic_008.xml 具体如下：  front_r: 9.9999185273729763e-01, -1.4001286979320763e-03, 3.78603997024">
+    <meta name="description" content="使用eigen求解 现在有一辆车,进行过eol标定。其标定结果如下表。目前的结论是：eigen转化R矩阵到欧拉角不准确。 对应的原rt文件如：cc_svs_params_out_008.xml extrinsic_008.xml 具体如下：  front_r: 9.9999185273729763e-01, -1.4001286979320763e-03, 3.7860399702453747e-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="标定结果中的RT和H互逆性的问题">
 <meta property="og:url" content="http://example.com/2024/04/08/%E6%A0%87%E5%AE%9A%E7%BB%93%E6%9E%9C%E4%B8%AD%E7%9A%84RT%E5%92%8CH%E4%BA%92%E9%80%86%E6%80%A7%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="BigShuai&#39;sBlog">
-<meta property="og:description" content="使用eigen求解 现在有一辆车,进行过eol标定。其标定结果如下表。目前的结论是：eigen转化R矩阵到欧拉角不准确。 对应的原rt文件如：cc_svs_params_out_008.xml extrinsic_008.xml 具体如下：  front_r: 9.9999185273729763e-01, -1.4001286979320763e-03, 3.78603997024">
+<meta property="og:description" content="使用eigen求解 现在有一辆车,进行过eol标定。其标定结果如下表。目前的结论是：eigen转化R矩阵到欧拉角不准确。 对应的原rt文件如：cc_svs_params_out_008.xml extrinsic_008.xml 具体如下：  front_r: 9.9999185273729763e-01, -1.4001286979320763e-03, 3.7860399702453747e-">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101035891.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101034013.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101033792.png">
 <meta property="article:published_time" content="2024-04-08T01:19:41.000Z">
-<meta property="article:modified_time" content="2024-04-10T02:46:41.781Z">
+<meta property="article:modified_time" content="2024-04-10T02:46:42.000Z">
 <meta property="article:author" content="Big Shuai">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101033792.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101035891.png">
   
   
   
@@ -278,36 +280,21 @@
                 
                 <h2 id="使用eigen求解">使用eigen求解</h2>
 <p>现在有一辆车,进行过eol标定。其标定结果如下表。<strong>目前的结论是：eigen转化R矩阵到欧拉角不准确。</strong></p>
-<p>对应的原rt文件如：<a href="#">cc_svs_params_out_008.xml</a> <a
-href="#">extrinsic_008.xml</a></p>
+<p>对应的原rt文件如：<a href="#">cc_svs_params_out_008.xml</a> <a href="#">extrinsic_008.xml</a></p>
 <p>具体如下：</p>
 <ul>
 <li><p>front_r:</p>
-<p>9.9999185273729763e-01, -1.4001286979320763e-03,
-3.7860399702453747e-03, -3.9705549499231075e-03, -5.1019285187180718e-01
-,8.6005086395648833e-01, 7.2742863341338383e-04
-,-8.6005888957590637e-01, -5.1019425448454592e-01</p></li>
+<p>9.9999185273729763e-01, -1.4001286979320763e-03, 3.7860399702453747e-03, -3.9705549499231075e-03, -5.1019285187180718e-01 ,8.6005086395648833e-01, 7.2742863341338383e-04 ,-8.6005888957590637e-01, -5.1019425448454592e-01</p></li>
 <li><p>left_r:</p>
-<p>-9.2646009441309379e-03 ,6.7136853981002731e-01,
--7.4106575344074355e-01 ,9.9989272825131936e-01,
--2.1879621715446378e-03, -1.4482569235759263e-02,
--1.1344565195664548e-02, -7.4112043324610011e-01,
--6.7127625033635308e-01</p></li>
+<p>-9.2646009441309379e-03 ,6.7136853981002731e-01, -7.4106575344074355e-01 ,9.9989272825131936e-01, -2.1879621715446378e-03, -1.4482569235759263e-02, -1.1344565195664548e-02, -7.4112043324610011e-01, -6.7127625033635308e-01</p></li>
 <li><p>rear_r:</p>
-<p>-9.9993380979667956e-01 ,1.1254483785363260e-02,
-2.3901088307984081e-03 ,2.9754730937093894e-03 , 4.5362472069214521e-01,
--8.9118783616970609e-01 , -1.1114071502679677e-02,
--8.9112173656111615e-01 , -4.5362818259333776e-01</p></li>
+<p>-9.9993380979667956e-01 ,1.1254483785363260e-02, 2.3901088307984081e-03 ,2.9754730937093894e-03 , 4.5362472069214521e-01, -8.9118783616970609e-01 , -1.1114071502679677e-02, -8.9112173656111615e-01 , -4.5362818259333776e-01</p></li>
 <li><p>right_r:</p>
-<p>-9.4426695241620097e-03, -6.7318106864383931e-01,
-7.3941739552961327e-01, -9.9987163497538067e-01, -3.2155644340346452e-03
-,-1.5696296283832810e-02, 1.2944093785072519e-02,
--7.3947069513599339e-01, -6.7306429222710518e-01</p></li>
+<p>-9.4426695241620097e-03, -6.7318106864383931e-01, 7.3941739552961327e-01, -9.9987163497538067e-01, -3.2155644340346452e-03 ,-1.5696296283832810e-02, 1.2944093785072519e-02, -7.3947069513599339e-01, -6.7306429222710518e-01</p></li>
 </ul>
 <p>转换成具体角度如表1(使用原转换方法。接近但有误差。)</p>
 <p><strong>表1 eol标定的角度真值</strong></p>
-<table style="width:100%;">
-
+<table>
 <thead>
 <tr class="header">
 <th></th>
@@ -358,8 +345,7 @@ href="#">extrinsic_008.xml</a></p>
 </tr>
 </tbody>
 </table>
-<p>使用eigen的接口转换结果如表2.为了排除定义的影响。又分别针对各个相机对原R矩阵<strong>分别</strong>乘了绕x轴,绕y轴,绕z轴
-cam_id*π/2的eigen旋转向量，再求解eigen的欧拉角。如表2.</p>
+<p>使用eigen的接口转换结果如表2.为了排除定义的影响。又分别针对各个相机对原R矩阵<strong>分别</strong>乘了绕x轴,绕y轴,绕z轴 cam_id*π/2的eigen旋转向量，再求解eigen的欧拉角。如表2.</p>
 <p><strong>表2 eigen转换eol标定的RT</strong></p>
 <table style="width:100%;">
 
@@ -417,9 +403,7 @@ cam_id*π/2的eigen旋转向量，再求解eigen的欧拉角。如表2.</p>
 <td></td>
 </tr>
 <tr class="odd">
-<td>eigen
-R加个补偿角(X轴)-n*pi/2到欧拉角的结果,再映射到原始数据的(n=0,1,2,3
-前左后右)</td>
+<td>eigen R加个补偿角(X轴)-n*pi/2到欧拉角的结果,再映射到原始数据的(n=0,1,2,3 前左后右)</td>
 <td>front</td>
 <td>59.3232</td>
 <td>-179.958</td>
@@ -459,9 +443,7 @@ R加个补偿角(X轴)-n*pi/2到欧拉角的结果,再映射到原始数据的(n
 <td></td>
 </tr>
 <tr class="odd">
-<td>eigen
-R加个补偿角(Y轴)-n*pi/2到欧拉角的结果,再映射到原始数据的(n=0,1,2,3
-前左后右)</td>
+<td>eigen R加个补偿角(Y轴)-n*pi/2到欧拉角的结果,再映射到原始数据的(n=0,1,2,3 前左后右)</td>
 <td>front</td>
 <td>59.3232°</td>
 <td>-179.958°</td>
@@ -501,9 +483,7 @@ R加个补偿角(Y轴)-n*pi/2到欧拉角的结果,再映射到原始数据的(n
 <td></td>
 </tr>
 <tr class="odd">
-<td>eigen
-R加个补偿角(Z轴)-n*pi/2到欧拉角的结果,再映射到原始数据的(n=0,1,2,3
-前左后右)</td>
+<td>eigen R加个补偿角(Z轴)-n*pi/2到欧拉角的结果,再映射到原始数据的(n=0,1,2,3 前左后右)</td>
 <td>front</td>
 <td>59.3232°</td>
 <td>-179.958°</td>
@@ -602,8 +582,7 @@ R加个补偿角(Z轴)-n*pi/2到欧拉角的结果,再映射到原始数据的(n
 <td></td>
 </tr>
 <tr class="odd">
-<td>eigen R加个补偿角-n*pi/2到欧拉角的结果,再映射到原始数据的(n=0,1,2,3
-前左后右),再映射到原始数据的补偿值</td>
+<td>eigen R加个补偿角-n*pi/2到欧拉角的结果,再映射到原始数据的(n=0,1,2,3 前左后右),再映射到原始数据的补偿值</td>
 <td>front</td>
 <td>-90</td>
 <td>+180</td>
@@ -795,36 +774,26 @@ R加个补偿角(Z轴)-n*pi/2到欧拉角的结果,再映射到原始数据的(n
 <h3 id="eigen旋转矩阵以及旋转坐标系">eigen旋转矩阵以及旋转坐标系</h3>
 <h3 id="cc-旋转矩阵">CC 旋转矩阵</h3>
 <ol type="1">
-<li><p>相机坐标系是右手坐标系。x轴指向相机右侧，y轴指向相机下，z轴由相机光心指向前；x_rot
-逆时针为pitch正，y_rot
-逆时针为yaw正，z_rot逆时针为roll正。旋转时都是按照先转z_rot（roll）,再转y_rot（yaw）,再转x_rot（pitch）的顺序进行的。</p>
+<li><p>相机坐标系是右手坐标系。x轴指向相机右侧，y轴指向相机下，z轴由相机光心指向前；x_rot 逆时针为pitch正，y_rot 逆时针为yaw正，z_rot逆时针为roll正。旋转时都是按照先转z_rot（roll）,再转y_rot（yaw）,再转x_rot（pitch）的顺序进行的。</p>
 <p>但需要注意两点：</p>
 <ol type="1">
 <li>文件中记录的pitch角类似-27°，-56°这些负角度等等，<strong>但实际上从相机实际位置旋转到bev（后轴中心）,是旋转了(90-(-27))°，(90-(-56))°，(90-(pitch))</strong>。这也是R中对应的x的实际逆时针旋转角度；</li>
-<li>对于不同的相机，pitch/yaw/roll记录的角度有偏差，偏差1是上一条所提内容，偏差2是在修正偏差1的情况下，只能将各个相机的图像旋转到bev前侧区域（后轴中心）。左右后还要在bev前侧区域的坐标轴下分别逆时针旋转
-pi/2 , pi , 3*pi/2 的角度才能到bev的左/后/右区域。</li>
+<li>对于不同的相机，pitch/yaw/roll记录的角度有偏差，偏差1是上一条所提内容，偏差2是在修正偏差1的情况下，只能将各个相机的图像旋转到bev前侧区域（后轴中心）。左右后还要在bev前侧区域的坐标轴下分别逆时针旋转 pi/2 , pi , 3*pi/2 的角度才能到bev的左/后/右区域。</li>
 </ol></li>
 <li><p>CC计算旋转矩阵的过程</p></li>
 </ol>
 <figure>
-<img
-src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101035891.png" srcset="/img/loading.gif" lazyload
-alt="图1 相机坐标系" />
-<figcaption aria-hidden="true">图1 相机坐标系</figcaption>
+<img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101035891.png" srcset="/img/loading.gif" lazyload alt="图1 相机坐标系" /><figcaption>图1 相机坐标系</figcaption>
 </figure>
 <p>​</p>
 <p>​</p>
 <figure>
-<img
-src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101034013.png" srcset="/img/loading.gif" lazyload
-alt="图2 RT矩阵计算流程" />
-<figcaption aria-hidden="true">图2 RT矩阵计算流程</figcaption>
+<img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101034013.png" srcset="/img/loading.gif" lazyload alt="图2 RT矩阵计算流程" /><figcaption>图2 RT矩阵计算流程</figcaption>
 </figure>
 <p>​</p>
 <p><img src="https://cdn.jsdelivr.net/gh/BIGBIGBrotherAI/BlogImg@main/202404101033792.png" srcset="/img/loading.gif" lazyload alt="图3  旋转矩阵的推导" style="zoom:67%;" /></p>
 <p>​</p>
-<h3
-id="万向节死锁导致欧拉角不唯一"><strong>万向节死锁导致欧拉角不唯一</strong></h3>
+<h3 id="万向节死锁导致欧拉角不唯一"><strong>万向节死锁导致欧拉角不唯一</strong></h3>
 <p>当两个旋转轴重合时，系统的自由度减少，导致一个方向的旋转不再独立，这种现象称为<strong>万向节死锁</strong>。</p>
 <p>万向节死锁导致的问题？</p>
 <p>当使用<strong>欧拉角</strong>描述旋转时，万向节死锁发生的情况通常是这样的：</p>
@@ -832,8 +801,7 @@ id="万向节死锁导致欧拉角不唯一"><strong>万向节死锁导致欧拉
 <li><p><strong>初始状态</strong>：物体有三个独立的旋转轴，分别对应俯仰、偏航和翻滚。</p></li>
 <li><p><strong>死锁发生</strong>：当物体先进行一定程度的俯仰旋转，然后再进行偏航旋转时，俯仰和偏航的旋转轴可能会重合。这时，物体的一个旋转轴（通常是翻滚轴）会与俯仰轴或偏航轴对齐。</p></li>
 <li><p><strong>自由度减少</strong>：在死锁状态下，物体失去了一个旋转自由度。这意味着，使用三个欧拉角无法唯一描述物体的旋转状态。（这时，第三个轴的旋转不再独立，导致物体实际上只有两个独立的旋转自由度。当两个这样的轴对齐时，例如俯仰轴和偏航轴指向同一方向或相反方向，物体的旋转自由度会减少。）。</p></li>
-<li><p><strong>求解问题</strong>：当尝试从这种状态的旋转矩阵中求解欧拉角时，由于自由度的减少，可能会出现<strong>多组不同的欧拉角对应同一个旋转矩阵</strong>的情况。这导致从旋转矩阵求解欧拉角时出现不确定性或错误。
-在死锁状态下，<strong>通常存在两组不同</strong>的欧拉角可以描述同一个旋转状态。这两组解是通过对称性得到的。具体来说：</p>
+<li><p><strong>求解问题</strong>：当尝试从这种状态的旋转矩阵中求解欧拉角时，由于自由度的减少，可能会出现<strong>多组不同的欧拉角对应同一个旋转矩阵</strong>的情况。这导致从旋转矩阵求解欧拉角时出现不确定性或错误。 在死锁状态下，<strong>通常存在两组不同</strong>的欧拉角可以描述同一个旋转状态。这两组解是通过对称性得到的。具体来说：</p>
 <ol type="1">
 <li>一组解：直接从旋转矩阵得到的欧拉角。</li>
 <li>另一组解：由于旋转轴对齐，可以通过将其<strong>中一个轴的旋转角度增加或减少180°来获得另一组解</strong>。例如，如果俯仰轴和偏航轴对齐，那么俯仰角增加或减少180°将得到另一组描述相同旋转状态的欧拉角。</li>
@@ -842,8 +810,7 @@ id="万向节死锁导致欧拉角不唯一"><strong>万向节死锁导致欧拉
 <ol type="1">
 <li><strong>检测万向节死锁</strong>:通过检查旋转矩阵中的某些元素是否接近0或1来实现。例如，如果旋转矩阵中的某个元素接近1或-1;</li>
 <li><strong>调整旋转矩阵:</strong>可以通过添加一个非常小的偏移量到旋转矩阵来实现，从而打破轴对齐的状态。例如，可以沿着非对齐的轴添加一个微小的旋转;</li>
-<li><strong>处理角度限制</strong>:Eigen库可能对欧拉角施加了某些限制，例如将角度限制在
--90° 到 90° 之间。</li>
+<li><strong>处理角度限制</strong>:Eigen库可能对欧拉角施加了某些限制，例如将角度限制在 -90° 到 90° 之间。</li>
 </ol></li>
 </ol>
 

@@ -16,15 +16,15 @@
   <meta name="author" content="Big Shuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在射影几何学中，RT刚体变换和单应性矩阵变换都是可逆的，但它们的可逆性含义略有不同。  RT刚体变换：  - RT刚体变换通常由一个旋转矩阵 R 和一个平移向量 T* 组成。 - 旋转矩阵 R是一个正交矩阵，意味着它的逆矩阵就是它的转置矩阵，即R-1&#x3D;RT。 - 平移向量T 的逆变换是它的相反数，即-T。 - 因此，RT刚体变换的逆变换是RT和-T的组合，这是可逆的。  单应">
+    <meta name="description" content="在射影几何学中，RT刚体变换和单应性矩阵变换都是可逆的，但它们的可逆性含义略有不同。  RT刚体变换：  - RT刚体变换通常由一个旋转矩阵 R 和一个平移向量 T* 组成。 - 旋转矩阵 R是一个正交矩阵，意味着它的逆矩阵就是它的转置矩阵，即R-1&#x3D;RT。 - 平移向量T 的逆变换是它的相反数，即-T。 - 因此，RT刚体变换的逆变换是RT和-T的组合，这是可逆的。  单应性矩阵H变换：  -">
 <meta property="og:type" content="article">
 <meta property="og:title" content="标定结果中RT与欧拉角互逆性的问题">
 <meta property="og:url" content="http://example.com/2024/04/08/%E6%A0%87%E5%AE%9A%E7%BB%93%E6%9E%9C%E4%B8%ADRT%E4%B8%8E%E6%AC%A7%E6%8B%89%E8%A7%92%E4%BA%92%E9%80%86%E6%80%A7%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="BigShuai&#39;sBlog">
-<meta property="og:description" content="在射影几何学中，RT刚体变换和单应性矩阵变换都是可逆的，但它们的可逆性含义略有不同。  RT刚体变换：  - RT刚体变换通常由一个旋转矩阵 R 和一个平移向量 T* 组成。 - 旋转矩阵 R是一个正交矩阵，意味着它的逆矩阵就是它的转置矩阵，即R-1&#x3D;RT。 - 平移向量T 的逆变换是它的相反数，即-T。 - 因此，RT刚体变换的逆变换是RT和-T的组合，这是可逆的。  单应">
+<meta property="og:description" content="在射影几何学中，RT刚体变换和单应性矩阵变换都是可逆的，但它们的可逆性含义略有不同。  RT刚体变换：  - RT刚体变换通常由一个旋转矩阵 R 和一个平移向量 T* 组成。 - 旋转矩阵 R是一个正交矩阵，意味着它的逆矩阵就是它的转置矩阵，即R-1&#x3D;RT。 - 平移向量T 的逆变换是它的相反数，即-T。 - 因此，RT刚体变换的逆变换是RT和-T的组合，这是可逆的。  单应性矩阵H变换：  -">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-08T01:20:09.000Z">
-<meta property="article:modified_time" content="2024-04-08T01:27:33.725Z">
+<meta property="article:modified_time" content="2024-04-08T01:27:34.000Z">
 <meta property="article:author" content="Big Shuai">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -278,22 +278,12 @@
 <ol type="1">
 <li><strong>RT刚体变换</strong>：</li>
 </ol>
-<p>- RT刚体变换通常由一个旋转矩阵 <strong><em>R</em></strong>
-和一个平移向量 <strong>T*</strong> 组成。 - 旋转矩阵
-<strong><em>R</em></strong>是一个正交矩阵，意味着它的逆矩阵就是它的转置矩阵，即<strong><em>R</em></strong><sup>-1</sup>=<strong><em>R</em></strong><sup>T</sup>。
-- 平移向量<strong><em>T</em></strong>
-的逆变换是它的相反数，即<strong><em>-T</em></strong>。 -
-因此，RT刚体变换的逆变换是<strong><em>R</em></strong><sup>T</sup><strong>和-T</strong>的组合，这是<strong>可逆</strong>的。</p>
+<p>- RT刚体变换通常由一个旋转矩阵 <strong><em>R</em></strong> 和一个平移向量 <strong>T*</strong> 组成。 - 旋转矩阵 <strong><em>R</em></strong>是一个正交矩阵，意味着它的逆矩阵就是它的转置矩阵，即<strong><em>R</em></strong><sup>-1</sup>=<strong><em>R</em></strong><sup>T</sup>。 - 平移向量<strong><em>T</em></strong> 的逆变换是它的相反数，即<strong><em>-T</em></strong>。 - 因此，RT刚体变换的逆变换是<strong><em>R</em></strong><sup>T</sup><strong>和-T</strong>的组合，这是<strong>可逆</strong>的。</p>
 <ol start="2" type="1">
 <li><strong>单应性矩阵H变换</strong>：</li>
 </ol>
-<p>- 单应性矩阵是一个3x3的矩阵，用于描述两个平面之间的射影变换。 -
-单应性矩阵的逆矩阵存在当且仅当该单应性矩阵的行列式不为零。 -
-当行列式不为零时，单应性矩阵变换是可逆的，这意味着可以通过逆矩阵将变换逆向执行。
-总结来说，RT<strong><u>刚体变换总是可逆</u></strong>的，因为旋转和平移都有明确的逆操作。而<strong>单应性矩阵变换在<u>行列式不为零</u>的情况下是可逆</strong>的，这取决于具体的变换矩阵。</p>
-<p>假设如下场景，对于一台已经标定好的环视相机，在相机前的三维空间有一批3D点。我们可以通过标定结果中的RT或者H把这些3D点转换到鱼眼坐标系的2D点，然后再通过标定结果中的RT或者H把这些2D点投影到Bev中去。
-现在做假设：1.标定完全准确；2.三维空间有一批3D点的z值为0。
-那么Bev中的点相对于后轴中心的位置与三维空间中的点相对于后轴中心的位置<strong>应当</strong>一致，加入引入一些转换损失，也应当保持较小的误差。</p>
+<p>- 单应性矩阵是一个3x3的矩阵，用于描述两个平面之间的射影变换。 - 单应性矩阵的逆矩阵存在当且仅当该单应性矩阵的行列式不为零。 - 当行列式不为零时，单应性矩阵变换是可逆的，这意味着可以通过逆矩阵将变换逆向执行。 总结来说，RT<strong><u>刚体变换总是可逆</u></strong>的，因为旋转和平移都有明确的逆操作。而<strong>单应性矩阵变换在<u>行列式不为零</u>的情况下是可逆</strong>的，这取决于具体的变换矩阵。</p>
+<p>假设如下场景，对于一台已经标定好的环视相机，在相机前的三维空间有一批3D点。我们可以通过标定结果中的RT或者H把这些3D点转换到鱼眼坐标系的2D点，然后再通过标定结果中的RT或者H把这些2D点投影到Bev中去。 现在做假设：1.标定完全准确；2.三维空间有一批3D点的z值为0。 那么Bev中的点相对于后轴中心的位置与三维空间中的点相对于后轴中心的位置<strong>应当</strong>一致，加入引入一些转换损失，也应当保持较小的误差。</p>
 <p>但是在实际的标定结果中，使用RT将三维空间有一批3D点投影到鱼眼，再使用H矩阵投影到bev后，发生了较大的误差。这说明：<strong>RT刚体变换</strong>和<strong>单应性矩阵H变换</strong>并不能<strong>完全</strong>互相转换。</p>
 
                 

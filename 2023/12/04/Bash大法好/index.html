@@ -16,18 +16,18 @@
   <meta name="author" content="Big Shuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。  ffmpeg 处理视频文件的一些操作  在172.16.2.88服务器上，&#x2F;data01&#x2F;ffmpeg-n5.1-latest-linux64-lgpl-shared-5.1.tar.gz 是一个比较新的ffmpeg版本，该版本可以使用n卡做编解码器，也">
+    <meta name="description" content="Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。  ffmpeg 处理视频文件的一些操作  在172.16.2.88服务器上，&#x2F;data01&#x2F;ffmpeg-n5.1-latest-linux64-lgpl-shared-5.1.tar.gz 是一个比较新的ffmpeg版本，该版本可以使用n卡做编解码器，也就是是-c h">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bash大法好">
 <meta property="og:url" content="http://example.com/2023/12/04/Bash%E5%A4%A7%E6%B3%95%E5%A5%BD/index.html">
 <meta property="og:site_name" content="BigShuai&#39;sBlog">
-<meta property="og:description" content="Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。  ffmpeg 处理视频文件的一些操作  在172.16.2.88服务器上，&#x2F;data01&#x2F;ffmpeg-n5.1-latest-linux64-lgpl-shared-5.1.tar.gz 是一个比较新的ffmpeg版本，该版本可以使用n卡做编解码器，也">
+<meta property="og:description" content="Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。  ffmpeg 处理视频文件的一些操作  在172.16.2.88服务器上，&#x2F;data01&#x2F;ffmpeg-n5.1-latest-linux64-lgpl-shared-5.1.tar.gz 是一个比较新的ffmpeg版本，该版本可以使用n卡做编解码器，也就是是-c h">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-04T08:44:32.000Z">
-<meta property="article:modified_time" content="2024-01-13T12:19:48.649Z">
+<meta property="article:modified_time" content="2024-01-13T12:19:50.000Z">
 <meta property="article:author" content="Big Shuai">
-<meta property="article:tag" content="git">
 <meta property="article:tag" content="ffmpeg">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -276,18 +276,12 @@
             
               <div class="markdown-body">
                 
-                <p>Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell
-既是一种命令语言，又是一种程序设计语言。</p>
+                <p>Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。</p>
 <ol type="1">
-<li><h2 id="ffmpeg-处理视频文件的一些操作">ffmpeg
-处理视频文件的一些操作</h2></li>
+<li><h2 id="ffmpeg-处理视频文件的一些操作">ffmpeg 处理视频文件的一些操作</h2></li>
 </ol>
-<p>在172.16.2.88服务器上，/data01/ffmpeg-n5.1-latest-linux64-lgpl-shared-5.1.tar.gz
-是一个比较新的ffmpeg版本，该版本可以使用n卡做编解码器，也就是是-c
-hevc_nvenc参数加速处理。</p>
-<p>该版本包含：(decoders: hevc hevc_qsv hevc_cuvid ) (encoders: hevc_amf
-hevc_nvenc hevc_qsv hevc_vaapi libkvazaar
-)，hevc_amf是amd集成显卡的编码器，hevc_qsv是intel集成显卡的编码器。</p>
+<p>在172.16.2.88服务器上，/data01/ffmpeg-n5.1-latest-linux64-lgpl-shared-5.1.tar.gz 是一个比较新的ffmpeg版本，该版本可以使用n卡做编解码器，也就是是-c hevc_nvenc参数加速处理。</p>
+<p>该版本包含：(decoders: hevc hevc_qsv hevc_cuvid ) (encoders: hevc_amf hevc_nvenc hevc_qsv hevc_vaapi libkvazaar )，hevc_amf是amd集成显卡的编码器，hevc_qsv是intel集成显卡的编码器。</p>
 <ol type="1">
 <li><h3 id="常用参数来自网络">常用参数（来自网络）</h3></li>
 </ol>
@@ -330,8 +324,7 @@ hevc_nvenc hevc_qsv hevc_vaapi libkvazaar
 </tr>
 <tr class="even">
 <td>-itsoffset time_off</td>
-<td>设置时间偏移(s)，该选项影响所有后面的输入文件。该偏移被加到输入文件的时戳，定义一个正偏移意味着相应的流被延迟了
-offset秒。 [-]hh:mm:ss[.xxx]的格式也支持</td>
+<td>设置时间偏移(s)，该选项影响所有后面的输入文件。该偏移被加到输入文件的时戳，定义一个正偏移意味着相应的流被延迟了 offset秒。 [-]hh:mm:ss[.xxx]的格式也支持</td>
 </tr>
 <tr class="odd">
 <td>-title string</td>
@@ -363,8 +356,7 @@ offset秒。 [-]hh:mm:ss[.xxx]的格式也支持</td>
 </tr>
 <tr class="even">
 <td>-target type</td>
-<td>设置目标文件类型("vcd", "svcd", "dvd", "dv", "dv50", "pal-vcd",
-"ntsc-svcd", ...)</td>
+<td>设置目标文件类型("vcd", "svcd", "dvd", "dv", "dv50", "pal-vcd", "ntsc-svcd", ...)</td>
 </tr>
 <tr class="odd">
 <td>-dframes number</td>
@@ -399,8 +391,7 @@ offset秒。 [-]hh:mm:ss[.xxx]的格式也支持</td>
 </tr>
 <tr class="odd">
 <td>-r rate</td>
-<td>帧速率(fps)
-（可以改，确认非标准桢率会导致音画不同步，所以只能设定为15或者29.97）</td>
+<td>帧速率(fps) （可以改，确认非标准桢率会导致音画不同步，所以只能设定为15或者29.97）</td>
 </tr>
 <tr class="even">
 <td>-s size</td>
@@ -472,15 +463,11 @@ offset秒。 [-]hh:mm:ss[.xxx]的格式也支持</td>
 </tr>
 <tr class="odd">
 <td>-vsync</td>
-<td>The -vsync option has the following values:-1: auto (default) 0:
-passthrough 1: cfr (constant frame rate) 2: vfr (variable frame
-rate)</td>
+<td>The -vsync option has the following values:-1: auto (default) 0: passthrough 1: cfr (constant frame rate) 2: vfr (variable frame rate)</td>
 </tr>
 <tr class="even">
 <td>-fps_mode</td>
-<td>The -vsync option has the following values:-1: auto (default) 0:
-passthrough 1: cfr (constant frame rate) 2: vfr (variable frame
-rate)</td>
+<td>The -vsync option has the following values:-1: auto (default) 0: passthrough 1: cfr (constant frame rate) 2: vfr (variable frame rate)</td>
 </tr>
 </tbody>
 </table>
@@ -495,8 +482,7 @@ rate)</td>
 <tbody>
 <tr class="odd">
 <td>-pix_fmt format</td>
-<td>set pixel format, 'list' as argument shows all the pixel formats
-supported</td>
+<td>set pixel format, 'list' as argument shows all the pixel formats supported</td>
 </tr>
 <tr class="even">
 <td>-intra</td>
@@ -524,8 +510,7 @@ supported</td>
 </tr>
 <tr class="even">
 <td>-qmin int</td>
-<td>设定最小质量，与-qmax（设定最大质量）共用，比如-qmin 10 -qmax
-31</td>
+<td>设定最小质量，与-qmax（设定最大质量）共用，比如-qmin 10 -qmax 31</td>
 </tr>
 <tr class="odd">
 <td>-qmax int</td>
@@ -542,13 +527,11 @@ supported</td>
 </tbody>
 </table>
 <ol type="1">
-<li><h3
-id="切割视频可用于从四合一视频中快速分割出单视角视频">切割视频——可用于从四合一视频中快速分割出单视角视频</h3></li>
+<li><h3 id="切割视频可用于从四合一视频中快速分割出单视角视频">切割视频——可用于从四合一视频中快速分割出单视角视频</h3></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ffmpeg -i <span class="hljs-variable">$&#123;video_name&#125;</span>.mp4 -c hevc_nvenc -vf crop=1280:1280:0:2 -r 5 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_le.mp4<br></code></pre></td></tr></table></figure>
 <ol type="1">
-<li><h3
-id="视频拼接可用于快速将单视角视频拼为41的视频">视频拼接——可用于快速将单视角视频拼为4*1的视频</h3></li>
+<li><h3 id="视频拼接可用于快速将单视角视频拼为41的视频">视频拼接——可用于快速将单视角视频拼为4*1的视频</h3></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ffmpeg -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_fr.mp4 -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_le.mp4 -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_re.mp4 -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_ri.mp4 -filter_complex vstack=inputs=4 -c hevc_nvenc -b:v 3000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_4x1.mp4<br></code></pre></td></tr></table></figure>
 <ol type="1">
@@ -568,8 +551,7 @@ id="视频拼接可用于快速将单视角视频拼为41的视频">视频拼接
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-meta">#!/usr/bin/env bash</span><br> <br>videos_root=/data/videos<br>save_root=/data/video_imgs/Image_fps50/<br><span class="hljs-keyword">for</span> video <span class="hljs-keyword">in</span> <span class="hljs-variable">$videos_root</span>/*;<br><span class="hljs-keyword">do</span><br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$video</span><br>save_dir=$save_root$(<span class="hljs-built_in">basename</span> <span class="hljs-variable">$video</span> .avi)<br><span class="hljs-keyword">if</span> [ ! -d <span class="hljs-variable">$save_dir</span> ];<span class="hljs-keyword">then</span><br><span class="hljs-built_in">mkdir</span> <span class="hljs-variable">$save_dir</span><br><span class="hljs-keyword">fi</span><br>ffmpeg -i <span class="hljs-variable">$video</span> -f image2  -vf fps=fps=50 -qscale:v 2 <span class="hljs-variable">$save_dir</span>/mp4-%05d.jpeg<br> <br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
 <ol type="1">
-<li><h3 id="组合前面几个命令2-2视频转4-1视频">组合前面几个命令——2 *
-2视频转4 * 1视频</h3></li>
+<li><h3 id="组合前面几个命令2-2视频转4-1视频">组合前面几个命令——2 * 2视频转4 * 1视频</h3></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Bash">video_name=<span class="hljs-variable">$1</span><br><span class="hljs-built_in">mkdir</span> results<br>ffmpeg -y -i <span class="hljs-variable">$&#123;video_name&#125;</span>.mp4 -c hevc_nvenc -vf crop=1920:1280:0:0 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_ri.mp4<br>ffmpeg -y -i <span class="hljs-variable">$&#123;video_name&#125;</span>.mp4 -c hevc_nvenc -vf crop=1920:1280:1920:0 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_le.mp4<br>ffmpeg -y -i <span class="hljs-variable">$&#123;video_name&#125;</span>.mp4 -c hevc_nvenc -vf crop=1920:1280:0:1280 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_fr.mp4<br>ffmpeg -y -i <span class="hljs-variable">$&#123;video_name&#125;</span>.mp4 -c hevc_nvenc -vf crop=1920:1280:1920:1280 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_re.mp4<br>ffmpeg -y -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_fr.mp4 -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_le.mp4 -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_re.mp4 -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_ri.mp4 -filter_complex vstack=inputs=4 -c hevc_nvenc -b:v 40000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_4x1.mp4<br></code></pre></td></tr></table></figure>
 <ol type="1">
@@ -577,8 +559,7 @@ id="视频拼接可用于快速将单视角视频拼为41的视频">视频拼接
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ffmpeg  -i videodump_2023_02_21_15_49_26.mp4 -vcodec copy -acodec copy -ss 00:00:05 -to 00:00:25 ./out1.mp4 -y<br></code></pre></td></tr></table></figure>
 <ol type="1">
-<li><h3
-id="四张单视角图片合并为一张4x1的图片">四张单视角图片合并为一张4x1的图片</h3></li>
+<li><h3 id="四张单视角图片合并为一张4x1的图片">四张单视角图片合并为一张4x1的图片</h3></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ffmpeg -i front.png -i left.png -i rear.png -i right.png -filter_complex vstack=inputs=4 img1.png<br></code></pre></td></tr></table></figure>
 <ol type="1">
@@ -586,27 +567,23 @@ id="四张单视角图片合并为一张4x1的图片">四张单视角图片合�
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-comment">##############################################################################################</span><br>视频信息：地址、后缀名、前后左右顺序、分辨率<br>root=/home/calmcar/wly/Hozon_ep40/54_white<br>suffix=.mp4<br>direct1=fr <span class="hljs-comment"># 左上</span><br>direct2=re <span class="hljs-comment"># 右上</span><br>direct3=le <span class="hljs-comment"># 左下</span><br>direct4=ri <span class="hljs-comment"># 右下</span><br>w=1280<br>h=960<br><span class="hljs-comment">##############################################################################################</span><br><span class="hljs-built_in">cd</span> <span class="hljs-variable">$&#123;root&#125;</span><br><span class="hljs-built_in">rm</span> videos.txt<br><span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> *<span class="hljs-variable">$&#123;suffix&#125;</span>;<span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;file &quot;</span><span class="hljs-variable">$&#123;name&#125;</span><span class="hljs-string">&quot;&quot;</span>&gt;&gt;videos.txt;<span class="hljs-keyword">done</span><br>ffmpeg -f concat -safe 0 -i videos.txt -c copy concat<span class="hljs-variable">$&#123;suffix&#125;</span><br><span class="hljs-comment">##############################################################################################</span><br></code></pre></td></tr></table></figure>
 <ol type="1">
-<li><h3
-id="要在ffmpeg中使用多个显卡进行视频处理你可以使用ffmpeg的-hwaccel选项和-cv选项">要在FFmpeg中使用多个显卡进行视频处理，你可以使用FFmpeg的<code>-hwaccel</code>选项和<code>-c:v</code>选项。</h3></li>
+<li><h3 id="要在ffmpeg中使用多个显卡进行视频处理你可以使用ffmpeg的-hwaccel选项和-cv选项">要在FFmpeg中使用多个显卡进行视频处理，你可以使用FFmpeg的<code>-hwaccel</code>选项和<code>-c:v</code>选项。</h3></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ffmpeg -hwaccel_device 0,1 -hwaccel cuda -i input.mp4 -c:v h264_nvenc -gpu 0,1 output.mp4<br></code></pre></td></tr></table></figure>
 <p>案例：2x2--&gt;4x1；多个视频合并成一个</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-comment"># 视频信息：地址、后缀名、前后左右顺序、分辨率</span><br>root=/home/calmcar/wly/Hozon_ep40/54_white <span class="hljs-comment"># 多个视频存放的目录</span><br>suffix=.mp4 <span class="hljs-comment"># 后缀</span><br>direct1=fr <span class="hljs-comment"># 左上</span><br>direct2=re <span class="hljs-comment"># 右上</span><br>direct3=le <span class="hljs-comment"># 左下</span><br>direct4=ri <span class="hljs-comment"># 右下</span><br>w=1280<br>h=960<br><span class="hljs-comment"># 合并视频</span><br><span class="hljs-built_in">cd</span> <span class="hljs-variable">$&#123;root&#125;</span><br><span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> *<span class="hljs-variable">$&#123;suffix&#125;</span>;<span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;file &quot;</span><span class="hljs-variable">$&#123;name&#125;</span><span class="hljs-string">&quot;&quot;</span> &gt;&gt; videos.txt;<span class="hljs-keyword">done</span><br>ffmpeg -f concat -safe 0 -i videos.txt -c copy concat<span class="hljs-variable">$&#123;suffix&#125;</span><br><span class="hljs-comment"># 2x2--&gt;4x1</span><br><span class="hljs-built_in">mkdir</span> results<br>video_name=concat<br>ffmpeg -i <span class="hljs-variable">$&#123;video_name&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span> -vf crop=<span class="hljs-variable">$w</span>:<span class="hljs-variable">$h</span>:0:0 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_<span class="hljs-variable">$&#123;direct1&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span><br>ffmpeg -i <span class="hljs-variable">$&#123;video_name&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span> -vf crop=<span class="hljs-variable">$w</span>:<span class="hljs-variable">$h</span>:<span class="hljs-variable">$w</span>:0 -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_<span class="hljs-variable">$&#123;direct2&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span><br>ffmpeg -i <span class="hljs-variable">$&#123;video_name&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span> -vf crop=<span class="hljs-variable">$w</span>:<span class="hljs-variable">$h</span>:0:<span class="hljs-variable">$h</span> -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_<span class="hljs-variable">$&#123;direct3&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span><br>ffmpeg -i <span class="hljs-variable">$&#123;video_name&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span> -vf crop=<span class="hljs-variable">$w</span>:<span class="hljs-variable">$h</span>:<span class="hljs-variable">$w</span>:<span class="hljs-variable">$h</span> -b:v 10000k results/<span class="hljs-variable">$&#123;video_name&#125;</span>_<span class="hljs-variable">$&#123;direct4&#125;</span><span class="hljs-variable">$&#123;suffix&#125;</span><br>ffmpeg -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_fr<span class="hljs-variable">$&#123;suffix&#125;</span> -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_le<span class="hljs-variable">$&#123;suffix&#125;</span> -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_re<span class="hljs-variable">$&#123;suffix&#125;</span> -i results/<span class="hljs-variable">$&#123;video_name&#125;</span>_ri<span class="hljs-variable">$&#123;suffix&#125;</span> -filter_complex vstack=inputs=4 -b:v 3000k <span class="hljs-variable">$&#123;video_name&#125;</span>4<span class="hljs-variable">$&#123;suffix&#125;</span><br></code></pre></td></tr></table></figure>
 <ol type="1">
 <li><h2 id="图片筛选时的一些便捷操作">图片筛选时的一些便捷操作</h2></li>
-<li><h3
-id="当我们有一堆单视角图片以前视角为准删除了相似帧图片后希望将保留下来的同帧号左右后视角图片取出时可以这么干">当我们有一堆单视角图片，以前视角为准删除了相似帧图片后，希望将保留下来的同帧号左右后视角图片取出时，可以这么干</h3></li>
+<li><h3 id="当我们有一堆单视角图片以前视角为准删除了相似帧图片后希望将保留下来的同帧号左右后视角图片取出时可以这么干">当我们有一堆单视角图片，以前视角为准删除了相似帧图片后，希望将保留下来的同帧号左右后视角图片取出时，可以这么干</h3></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-comment"># 首先新建四个文件夹，用于保存各视角图片</span><br><span class="hljs-built_in">mkdir</span> fr<br><span class="hljs-built_in">mkdir</span> le<br><span class="hljs-built_in">mkdir</span> re<br><span class="hljs-built_in">mkdir</span> ri<br><span class="hljs-comment"># 首先通过文件名，将四个视角的图片分别保存至四视角文件夹</span><br><span class="hljs-built_in">mv</span> *_fr_* ./fr<br><span class="hljs-built_in">mv</span> *_le_* ./le<br><span class="hljs-built_in">mv</span> *_re_* ./re<br><span class="hljs-built_in">mv</span> *_ri_* ./ri<br><span class="hljs-comment"># 之后我们以前视角作为基准，找出其他文件夹中包含同视频编号、md5值和帧号的图片</span><br><span class="hljs-built_in">cd</span> fr <br><span class="hljs-built_in">ls</span> * &gt; ../fr.txt<br><span class="hljs-built_in">cd</span> ..<br><span class="hljs-comment"># 此时我们主目录中除保存四视角图片文件夹外，还有一个fr.txt中保存有所有前视角图片名</span><br><span class="hljs-comment"># 之后我们要对fr.txt做一些操作</span><br>vim fr.txt<br><span class="hljs-comment"># 在vim界面中输入</span><br>:%s/_fr_/_le_/g <span class="hljs-comment"># 这个命令表示将所有_fr_替换为_le_</span><br>:x <span class="hljs-comment"># 保存退出</span><br><span class="hljs-comment"># 之后在终端输入</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `<span class="hljs-built_in">cat</span> fr.txt`;<span class="hljs-keyword">do</span> <span class="hljs-built_in">mv</span> le/<span class="hljs-variable">$&#123;i&#125;</span> ./;<span class="hljs-keyword">done</span>;<br><span class="hljs-comment"># 这样操作就可以把左视角与前视角文件夹的交集图片取出</span><br><span class="hljs-comment"># 同样对右、后文件夹操作</span><br>vim fr.txt<br><span class="hljs-comment"># 在vim界面中输入</span><br>:%s/_le_/_re_/g <span class="hljs-comment"># 这个命令表示将所有_fr_替换为_le_</span><br>:x <span class="hljs-comment"># 保存退出</span><br><span class="hljs-comment"># 之后在终端输入</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `<span class="hljs-built_in">cat</span> fr.txt`;<span class="hljs-keyword">do</span> <span class="hljs-built_in">mv</span> re/<span class="hljs-variable">$&#123;i&#125;</span> ./;<span class="hljs-keyword">done</span>;<br>vim fr.txt<br><span class="hljs-comment"># 在vim界面中输入</span><br>:%s/_re_/_ri_/g <span class="hljs-comment"># 这个命令表示将所有_fr_替换为_le_</span><br>:x <span class="hljs-comment"># 保存退出</span><br><span class="hljs-comment"># 之后在终端输入</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> `<span class="hljs-built_in">cat</span> fr.txt`;<span class="hljs-keyword">do</span> <span class="hljs-built_in">mv</span> ri/<span class="hljs-variable">$&#123;i&#125;</span> ./;<span class="hljs-keyword">done</span>;<br><span class="hljs-comment"># 最后将前视角文件夹中图片取出，删除四文件夹和fr.txt即可</span><br><span class="hljs-built_in">mv</span> ./fr/* ./<br><span class="hljs-built_in">rm</span> -r fr/ re/ ri/ le/ fr.txt<br></code></pre></td></tr></table></figure>
 <ol type="1">
-<li><h3
-id="遍历文件夹中所有文件不带后缀">遍历文件夹中所有文件（不带后缀）</h3></li>
+<li><h3 id="遍历文件夹中所有文件不带后缀">遍历文件夹中所有文件（不带后缀）</h3></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-built_in">basename</span> --suffix=.png -- *.png<br></code></pre></td></tr></table></figure>
 <ol type="1">
 <li><h2 id="git-操作">Git 操作</h2></li>
-<li><h3 id="git-强制回退删除已提交慎用">git
-强制回退，删除已提交（<strong><em>慎用</em></strong>）</h3></li>
+<li><h3 id="git-强制回退删除已提交慎用">git 强制回退，删除已提交（<strong><em>慎用</em></strong>）</h3></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git reset --hard commit_id<br>git push --force origin 3dod<br></code></pre></td></tr></table></figure>
 <ol type="1">
@@ -622,8 +599,7 @@ id="遍历文件夹中所有文件不带后缀">遍历文件夹中所有文件�
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git add &lt;文件1&gt; &lt;文件1&gt; &lt;文件2&gt; &lt;文件3&gt; ...<br></code></pre></td></tr></table></figure>
 <ol type="1">
-<li><h3 id="git-命令来查看相关文件的状态查看更新的详细信息">Git
-命令来查看相关文件的状态/查看更新的详细信息</h3></li>
+<li><h3 id="git-命令来查看相关文件的状态查看更新的详细信息">Git 命令来查看相关文件的状态/查看更新的详细信息</h3></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git status   <span class="hljs-comment"># 查看相关文件的状态</span><br>git diff     <span class="hljs-comment"># 查看尚未缓存的改动更新的详细信息</span><br>git diff --cached  <span class="hljs-comment"># 查看已缓存的改动： </span><br>git diff HEAD      <span class="hljs-comment"># 查看已缓存的与未缓存的所有改动：</span><br>git diff --<span class="hljs-built_in">stat</span>    <span class="hljs-comment"># 显示摘要而非整个 diff</span><br></code></pre></td></tr></table></figure>
 <ol type="1">
@@ -645,8 +621,7 @@ id="遍历文件夹中所有文件不带后缀">遍历文件夹中所有文件�
 <ol type="1">
 <li><h3 id="git合并操作">Git合并操作</h3></li>
 </ol>
-<p>合并的时候，最大的难点就是冲突了，合并并不仅仅是简单的文件添加、移除的操作，Git
-也会合并修改，如果我们在两个分支中同时修改了同一个文件，这时再合并，就可能会产生冲突，冲突并不可怕，可怕的是要怎样去解决。</p>
+<p>合并的时候，最大的难点就是冲突了，合并并不仅仅是简单的文件添加、移除的操作，Git 也会合并修改，如果我们在两个分支中同时修改了同一个文件，这时再合并，就可能会产生冲突，冲突并不可怕，可怕的是要怎样去解决。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git merge branchname <span class="hljs-comment">#将任意分支合并到到当前分支中</span><br></code></pre></td></tr></table></figure>
 <ol type="1">
 <li><h3 id="git查看提交历史">Git查看提交历史</h3></li>
@@ -655,12 +630,10 @@ id="遍历文件夹中所有文件不带后缀">遍历文件夹中所有文件�
 <ol type="1">
 <li><h3 id="git-标签操作">Git 标签操作</h3></li>
 </ol>
-<p>使用标签可以很方便的永远的记住那个特别的提交快照，比如：我们发一个新的版本时，可以给它加一个“vx.x”版本，这样你可以使用git
-tag给它打上标签。</p>
+<p>使用标签可以很方便的永远的记住那个特别的提交快照，比如：我们发一个新的版本时，可以给它加一个“vx.x”版本，这样你可以使用git tag给它打上标签。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">git tag -a v1.0 <span class="hljs-comment"># 创建一个带注解的标签,可以很方便的永远的记住那个特别的提交快照</span><br>git tag <span class="hljs-comment"># 查看标签</span><br>git tag -a &lt;tagname&gt; -m <span class="hljs-string">&quot;某某标签&quot;</span> <span class="hljs-comment">#指定标签信息</span><br>git tag -a v1.0 d6f7147 <span class="hljs-comment"># d6f7147提交已发布，可对其追加标签 </span><br>git checkout tag_name <span class="hljs-comment"># 但是，这时候 git 可能会提示你当前处于一个“detached HEAD&quot; 状态。因为 tag 相当于是一个快照，是不能更改它的代码的。如果要在 tag 代码的基础上做修改，你需要一个分支： git checkout -b branch_name tag_name</span><br></code></pre></td></tr></table></figure>
 <ol type="1">
-<li><h3
-id="配置.gitignore文件"><code>配置.gitignore</code>文件</h3></li>
+<li><h3 id="配置.gitignore文件"><code>配置.gitignore</code>文件</h3></li>
 </ol>
 <p>把要忽略的文件名填进去，Git就会自动忽略这些文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs Bash"><span class="hljs-comment"># 忽略所有.开头的隐藏文件:</span><br>.*<br><span class="hljs-comment"># 忽略所有.class文件:</span><br>*.class<br><br><span class="hljs-comment"># 排除忽略.gitignore和App.class:</span><br>!.gitignore<br>!App.class<br></code></pre></td></tr></table></figure>
@@ -679,8 +652,7 @@ id="配置.gitignore文件"><code>配置.gitignore</code>文件</h3></li>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Bash">conda install conda-pack conda-pack<br>conda pack -p /path/to/env -o env_name.tar.gz<br>tar zxcf env_name.tar.gz -C env_name<br><span class="hljs-built_in">source</span> env_name/bin/activate<br>conda un<br></code></pre></td></tr></table></figure>
 <ol type="1">
 <li><h2 id="shell网络命令">shell网络命令</h2></li>
-<li><h3
-id="ssh进行远程登录和执行命令">ssh进行远程登录和执行命令</h3></li>
+<li><h3 id="ssh进行远程登录和执行命令">ssh进行远程登录和执行命令</h3></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Bash">ssh user@host  <span class="hljs-comment"># user是要登录的用户名，host是要登录的主机名或IP地址</span><br>ssh -L 8080:localhost:80 user@example.com <span class="hljs-comment"># 创建一个SSH隧道，将本地端口8080转发到远程主机http://example.com的80端口</span><br></code></pre></td></tr></table></figure>
 <ol type="1">
@@ -720,9 +692,9 @@ id="ssh进行远程登录和执行命令">ssh进行远程登录和执行命令</
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/git/" class="print-no-link">#git</a>
-      
         <a href="/tags/ffmpeg/" class="print-no-link">#ffmpeg</a>
+      
+        <a href="/tags/git/" class="print-no-link">#git</a>
       
     </div>
   
