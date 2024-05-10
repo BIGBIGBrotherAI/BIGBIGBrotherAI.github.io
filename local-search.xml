@@ -139,7 +139,7 @@
     <link href="/2024/01/04/Cpp%E8%B0%83%E8%AF%95-GDB%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
     <url>/2024/01/04/Cpp%E8%B0%83%E8%AF%95-GDB%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<table><thead><tr class="header"><th>命令</th><th>全称</th><th>解释</th></tr></thead><tbody><tr class="odd"><td>l</td><td>list</td><td>查看源码</td></tr><tr class="even"><td>b</td><td>break</td><td>设置断点</td></tr><tr class="odd"><td>r</td><td>run</td><td>运行程序，在断点处停止</td></tr><tr class="even"><td>n</td><td>next</td><td>单条语句执行</td></tr><tr class="odd"><td>c</td><td>continue</td><td>继续运行程序，下一个断点处停止</td></tr><tr class="even"><td>p</td><td>print</td><td>打印变量的值</td></tr><tr class="odd"><td>q</td><td>quit</td><td>退出GDB</td></tr><tr class="even"><td>bt</td><td>backtrace</td><td>bt 命令用于获取当前线程的函数调用堆栈信息。<br />它会显示当前线程中函数调用的序列，从当前位置回溯到程序的入口点。<br />这有助于我们查看程序执行的路径，以找到问题所在。</td></tr><tr class="odd"><td>info stack</td><td></td><td>info stack 命令用于显示当前线程的调用堆栈的更详细信息，包括局部变量和寄存器值。<br/>它提供了比 bt 更详细的堆栈信息，包括局部变量、函数参数以及堆栈帧的更</td></tr><tr class="even"><td>f 帧编号</td><td>frame</td><td>选择栈帧</td></tr></tbody></table>]]></content>
     
     
     
